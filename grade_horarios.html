@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade Semanal de Horários</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: #f4f6f9;
+        color: #333;
+    }
+
+    h1 {
+        text-align: center;
+        color: #24364b;
+    }
+
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px #00000012;
+        overflow-x: auto;
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background: #245b91;
+        color: white;
+    }
+
+    button:hover {
+        background: #173e65;
+    }
+
+    table {
+        width: 100%;
+        min-width: 900px;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    th, td {
+        border: 1px solid #dce2e8;
+        text-align: center;
+        padding: 8px;
+    }
+
+    th {
+        background: #24364b;
+        color: white;
+        position: sticky;
+        top: 0;
+    }
+
+    th:first-child {
+        width: 85px;
+    }
+
+    .hora {
+        background: #edf1f5;
+        font-weight: bold;
+        color: #34495e;
+    }
+
+    td:not(.hora) {
+        height: 42px;
+        cursor: pointer;
+        background: white;
+        font-size: 12px;
+    }
+
+    td:not(.hora):hover {
+        background: #e8f2fc;
+    }
+
+    td.preenchido {
+        background: #d8eafa;
+        color: #17466e;
+        font-weight: bold;
+    }
+
+    @media print {
+        body {
+            margin: 5px;
+            background: white;
+        }
+
+        .actions {
+            display: none;
+        }
+
+        .container {
+            box-shadow: none;
+            padding: 0;
+        }
+
+        table {
+            min-width: 100%;
+        }
+
+        td, th {
+            padding: 5px;
+            font-size: 9px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>GRADE SEMANAL DE HORÁRIOS</h1>
+
+<div class="container">
+
+    <div class="actions">
+        <button onclick="window.print()">Imprimir grade</button>
+        <button onclick="limparGrade()">Limpar grade</button>
+    </div>
+
+    <table id="grade">
+        <thead>
+            <tr>
+                <th>Horário</th>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+
+        <tbody id="corpoGrade"></tbody>
+    </table>
+
+</div>
+
+<script>
+
+const dias = [
+    "Segunda", "Terça", "Quarta",
+    "Quinta", "Sexta", "Sábado", "Domingo"
+];
+
+const corpo = document.getElementById("corpoGrade");
+
+// Criar os 24 intervalos de horários
+for (let hora = 0; hora < 24; hora++) {
+
+    let inicio = String(hora).padStart(2, "0");
+    let fim = String((hora + 1) % 24).padStart(2, "0");
+
+    let linha = document.createElement("tr");
+
+    let colunaHora = document.createElement("td");
+    colunaHora.className = "hora";
+    colunaHora.textContent = `${inicio} - ${fim}`;
+
+    linha.appendChild(colunaHora);
+
+    dias.forEach((dia, indice) => {
+
+        let celula = document.createElement("td");
+
+        celula.dataset.id = `${hora}-${indice}`;
+
+        celula.addEventListener("click", function() {
+
+            let atual = this.textContent;
+
+            let atividade = prompt(
+                `Horário: ${inicio} - ${fim}\nDia: ${dia}\n\nDigite a atividade:`,
+                atual
+            );
+
+            if (atividade === null) return;
+
+            this.textContent = atividade;
+            this.classList.toggle("preenchido", atividade.trim() !== "");
+
+            salvarGrade();
+
+        });
+
+        linha.appendChild(celula);
+
+    });
+
+    corpo.appendChild(linha);
+}
+
+// Salvar dados no navegador
+function salvarGrade() {
+
+    let dados = {};
+
+    document.querySelectorAll("#grade td[data-id]").forEach(celula => {
+        dados[celula.dataset.id] = celula.textContent;
+    });
+
+    localStorage.setItem("gradeSemanal", JSON.stringify(dados));
+}
+
+// Recuperar dados salvos
+function carregarGrade() {
+
+    let dados = JSON.parse(
+        localStorage.getItem("gradeSemanal") || "{}"
+    );
+
+    document.querySelectorAll("#grade td[data-id]").forEach(celula => {
+
+        celula.textContent = dados[celula.dataset.id] || "";
+
+        if (celula.textContent.trim() !== "") {
+            celula.classList.add("preenchido");
+        }
+
+    });
+}
+
+// Limpar grade
+function limparGrade() {
+
+    if (!confirm("Deseja realmente limpar toda a grade?")) return;
+
+    document.querySelectorAll("#grade td[data-id]").forEach(celula => {
+        celula.textContent = "";
+        celula.classList.remove("preenchido");
+    });
+
+    localStorage.removeItem("gradeSemanal");
+}
+
+carregarGrade();
+
+</script>
+
+</body>
+</html>
