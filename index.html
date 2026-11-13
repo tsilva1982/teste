@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#111827">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <title>Prestação de Contas | Painel Pessoal</title>
 <style>
 :root{
@@ -71,6 +72,8 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
     <div><h1>Prestação de Contas</h1><p class="sub">Painel pessoal de acompanhamento financeiro</p></div>
   </div>
   <div class="header-actions">
+    <button class="btn" id="importBtn">↑ Importar Excel</button>
+    <input id="excelFile" type="file" accept=".xlsx,.xls,.csv" hidden>
     <button class="btn" id="exportBtn">↓ Exportar CSV</button>
     <button class="btn danger" id="clearBtn">Limpar lançamentos</button>
   </div>
@@ -100,7 +103,7 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
       </div>
       <div class="form-actions"><button class="btn primary" type="submit">＋ Adicionar lançamento</button><button class="btn" type="reset">Limpar campos</button></div>
     </form>
-    <p class="note">Os lançamentos ficam salvos neste navegador. Para manter uma cópia, use “Exportar CSV” regularmente.</p>
+    <p class="note">Os lançamentos ficam salvos neste navegador. Você também pode importar uma planilha Excel (.xlsx ou .xls) usando o botão no topo. Colunas esperadas: Data, Descrição, Categoria, Tipo e Valor.</p>
   </section>
 
   <section class="section">
@@ -161,6 +164,60 @@ $('exportBtn').addEventListener('click',()=>{
  const csv='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');
  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='prestacao-de-contas.csv';a.click();URL.revokeObjectURL(url);toast('Arquivo CSV exportado!');
 });
+
+$('importBtn').addEventListener('click',()=>$('excelFile').click());
+$('excelFile').addEventListener('change', async e=>{
+ const file=e.target.files[0];
+ if(!file)return;
+ try{
+   if(typeof XLSX==='undefined') throw new Error('Não foi possível carregar o leitor de Excel. Verifique sua conexão com a internet e tente novamente.');
+   const data=await file.arrayBuffer();
+   const workbook=XLSX.read(data,{type:'array',cellDates:true});
+   const sheet=workbook.Sheets[workbook.SheetNames[0]];
+   const rows=XLSX.utils.sheet_to_json(sheet,{defval:'',raw:false});
+   if(!rows.length) throw new Error('A planilha está vazia.');
+   const normalized = value => String(value??'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+   const find = (row, names) => {
+     const key=Object.keys(row).find(k=>names.includes(normalized(k)));
+     return key===undefined?'':row[key];
+   };
+   const parsed=[];
+   const errors=[];
+   rows.forEach((row,index)=>{
+     const desc=String(find(row,['descricao','descrição','historico','histórico','lancamento','lançamento'])).trim();
+     const category=String(find(row,['categoria','grupo'])).trim()||'Geral';
+     const typeRaw=normalized(find(row,['tipo','natureza']));
+     const dateRaw=find(row,['data','date']);
+     const valueRaw=find(row,['valor','value','total']);
+     let date='';
+     if(dateRaw instanceof Date && !isNaN(dateRaw)) date=dateRaw.toISOString().slice(0,10);
+     else if(typeof dateRaw==='number' && dateRaw>20000 && dateRaw<80000){
+       const d=XLSX.SSF.parse_date_code(dateRaw);
+       date=`${d.y}-${String(d.m).padStart(2,'0')}-${String(d.d).padStart(2,'0')}`;
+     } else {
+       const s=String(dateRaw).trim();
+       let m=s.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+       if(m) date=`${m[3]}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
+       else if(/^\d{4}-\d{2}-\d{2}$/.test(s)) date=s;
+     }
+     let amount=typeof valueRaw==='number'?valueRaw:Number(String(valueRaw).replace(/[R$\s]/g,'').replace(/\.(?=\d{3}(?:\D|$))/g,'').replace(',','.'));
+     let type='';
+     if(['receita','entrada','income'].includes(typeRaw)) type='income';
+     if(['despesa','saida','out','expense'].includes(typeRaw)) type='expense';
+     if(!desc||!date||!Number.isFinite(amount)||amount<=0||!type){
+       errors.push(index+2);return;
+     }
+     parsed.push({id:Date.now()+index,description:desc,amount,type,category,date});
+   });
+   if(!parsed.length) throw new Error('Nenhuma linha válida encontrada. Confira os nomes das colunas e os dados.');
+   const message=`Foram encontrados ${parsed.length} lançamento(s) válido(s).${errors.length?'\nLinhas ignoradas por dados inválidos: '+errors.join(', '):''}\n\nDeseja importar esses lançamentos?`;
+   if(confirm(message)){
+     entries.push(...parsed);save();render();toast(`${parsed.length} lançamento(s) importado(s)!`);
+   }
+ }catch(err){alert('Erro na importação: '+err.message);}
+ finally{e.target.value='';}
+});
+
 render();
 </script>
 </body>
