@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda Mensal</title>
+<style>
+:root {
+  --bg:#0b1120; --panel:#151f32; --cell:#1d2a40; --border:#30415b;
+  --text:#e7edf7; --muted:#91a1b8; --blue:#2563eb; --purple:#8b5cf6;
+  --green:#126b52; --red:#bd4058;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:24px;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text)}
+.container{max-width:1800px;margin:auto}
+header h1{margin:0 0 6px;font-size:27px}
+header p{margin:0;color:var(--muted)}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:24px 0}
+button{border:0;border-radius:7px;padding:11px 15px;color:white;font-weight:600;cursor:pointer}
+button:hover{filter:brightness(1.15)}
+.primary{background:var(--blue)} .secondary{background:#34445e}
+.month{font-size:21px;font-weight:700;min-width:190px;text-align:center}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:15px;overflow-x:auto}
+.info{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:13px;margin-bottom:14px}
+table{width:100%;min-width:1050px;table-layout:fixed;border-collapse:separate;border-spacing:3px}
+th{background:#263852;color:white;padding:13px 5px;border-radius:6px;font-size:12px}
+th:first-child{width:112px}
+td{height:105px;padding:6px;vertical-align:top;background:var(--cell);border:1px solid var(--border);border-radius:6px}
+td.week{background:#263852;color:#c4d3e8;text-align:center;vertical-align:middle;font-weight:700;font-size:12px}
+td.empty{background:#101a2b;border-color:#1c2a3e}
+td.day.today{border:2px solid var(--purple);background:#302451}
+.day-number{font-weight:700;color:#a9c9ff;margin-bottom:7px}
+.event{display:block;background:var(--green);color:#d7fff0;padding:5px;margin-top:4px;border-radius:4px;font-size:11px;overflow-wrap:anywhere}
+.status{margin-top:12px;color:var(--muted);font-size:12px}
+.status.error{color:#ff9aa9}
+@media(max-width:600px){body{padding:12px}.month{font-size:18px;min-width:150px}}
+@media print{
+ body{background:white;color:black;padding:0}
+ .toolbar{display:none}
+ .panel{background:white;border:0}
+ th,td.week{background:#263852!important;color:white!important;print-color-adjust:exact}
+ .event{print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>◈ Agenda Mensal</h1>
+    <p>Visualização mensal por dia da semana — dados carregados do arquivo agenda.csv</p>
+  </header>
+
+  <div class="toolbar">
+    <button class="secondary" id="prev">❮ Anterior</button>
+    <div class="month" id="monthLabel"></div>
+    <button class="secondary" id="next">Próximo ❯</button>
+    <button class="primary" id="today">Hoje</button>
+    <button class="primary" id="reload">↻ Recarregar CSV</button>
+    <button class="secondary" id="print">▣ Imprimir</button>
+  </div>
+
+  <section class="panel">
+    <div class="info">
+      <span>● Roxo: dia atual</span>
+      <span>● Verde: compromisso importado</span>
+      <span id="count">0 eventos</span>
+    </div>
+    <table>
+      <thead><tr>
+        <th>SEMANA</th>
+        <th>SEGUNDA</th><th>TERÇA</th><th>QUARTA</th>
+        <th>QUINTA</th><th>SEXTA</th><th>SÁBADO</th><th>DOMINGO</th>
+      </tr></thead>
+      <tbody id="calendar"></tbody>
+    </table>
+    <div id="status" class="status" role="status">Carregando agenda.csv...</div>
+  </section>
+</div>
+
+<script>
+"use strict";
+
+const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+  "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const weekDays = ["SEGUNDA","TERÇA","QUARTA","QUINTA","SEXTA","SÁBADO","DOMINGO"];
+const today = new Date();
+let viewYear = today.getFullYear();
+let viewMonth = today.getMonth();
+let events = new Map();
+
+const $ = id => document.getElementById(id);
+
+function setStatus(message, isError=false) {
+  $("status").textContent = message;
+  $("status").classList.toggle("error", isError);
+}
+
+// Parser CSV com suporte a campos entre aspas e delimitador ;.
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = "", quoted = false;
+  for (let i=0; i<text.length; i++) {
+    const c = text[i], next = text[i+1];
+    if (c === '"' && quoted && next === '"') { field += '"'; i++; }
+    else if (c === '"') { quoted = !quoted; }
+    else if (c === ';' && !quoted) { row.push(field); field = ""; }
+    else if ((c === '\n' || c === '\r') && !quoted) {
+      if (c === '\r' && next === '\n') i++;
+      row.push(field); field = "";
+      if (row.some(v => v.trim() !== "")) rows.push(row);
+      row = [];
+    } else { field += c; }
+  }
+  row.push(field);
+  if (row.some(v => v.trim() !== "")) rows.push(row);
+  return rows;
+}
+
+function normalizeDate(value) {
+  const s = (value || "").trim();
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!m) return null;
+  const y=Number(m[1]), mo=Number(m[2]), d=Number(m[3]);
+  const date = new Date(y, mo-1, d);
+  if (date.getFullYear() !== y || date.getMonth() !== mo-1 || date.getDate() !== d) return null;
+  return `${m[1]}-${m[2]}-${m[3]}`;
+}
+
+async function loadCSV() {
+  setStatus("Atualizando dados do arquivo agenda.csv...");
+  try {
+    const response = await fetch("./agenda.csv?ts=" + Date.now(), {cache:"no-store"});
+    if (!response.ok) throw new Error(`Não foi possível acessar agenda.csv (HTTP ${response.status}).`);
+    const text = (await response.text()).replace(/^\uFEFF/, "");
+    const rows = parseCSV(text);
+    if (!rows.length) throw new Error("O arquivo agenda.csv está vazio.");
+
+    const header = rows.shift().map(v => v.trim().toLowerCase());
+    const dateIndex = header.indexOf("data");
+    const activityIndex = header.indexOf("atividade");
+    const descriptionIndex = header.indexOf("descricao");
+
+    if (dateIndex < 0 || activityIndex < 0) {
+      throw new Error("Cabeçalho inválido. Use: data;atividade;descricao");
+    }
+
+    const imported = new Map();
+    let ignored = 0;
+
+    for (const row of rows) {
+      const date = normalizeDate(row[dateIndex] || "");
+      const name = (row[activityIndex] || "").trim();
+      const description = descriptionIndex >= 0 ? (row[descriptionIndex] || "").trim() : "";
+      if (!date || !name) { ignored++; continue; }
+      if (!imported.has(date)) imported.set(date, []);
+      imported.get(date).push({name, description});
+    }
+
+    events = imported;
+    renderCalendar();
+    const total = [...events.values()].reduce((sum, list) => sum + list.length, 0);
+    setStatus(`Arquivo atualizado. ${total} evento(s) carregado(s).` +
+      (ignored ? ` ${ignored} linha(s) ignorada(s) por falta de data ou atividade válida.` : ""));
+  } catch (error) {
+    setStatus(error.message + " Confira se o site foi aberto pelo iniciar.bat e se o CSV está na mesma pasta.", true);
+  }
+}
+
+function renderCalendar() {
+  $("monthLabel").textContent = `${monthNames[viewMonth]} / ${viewYear}`;
+  const body = $("calendar");
+  body.innerHTML = "";
+
+  const first = new Date(viewYear, viewMonth, 1);
+  const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
+  const offset = (first.getDay()+6)%7;
+  const weeks = Math.ceil((offset+daysInMonth)/7);
+  let monthCount = 0;
+
+  for (let week=0; week<weeks; week++) {
+    const tr = document.createElement("tr");
+    const weekCell = document.createElement("td");
+    weekCell.className = "week";
+    weekCell.textContent = `SEMANA ${week+1}`;
+    tr.appendChild(weekCell);
+
+    for (let weekday=0; weekday<7; weekday++) {
+      const day = week*7+weekday-offset+1;
+      const td = document.createElement("td");
+
+      if (day < 1 || day > daysInMonth) {
+        td.className = "empty";
+      } else {
+        td.className = "day";
+        const key = `${viewYear}-${String(viewMonth+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+        if (viewYear===today.getFullYear() && viewMonth===today.getMonth() && day===today.getDate()) {
+          td.classList.add("today");
+        }
+
+        const number = document.createElement("div");
+        number.className = "day-number";
+        number.textContent = String(day).padStart(2,"0");
+        td.appendChild(number);
+
+        const dayEvents = events.get(key) || [];
+        dayEvents.forEach(event => {
+          const item = document.createElement("span");
+          item.className = "event";
+          item.textContent = event.name;
+          if (event.description) item.title = event.description;
+          td.appendChild(item);
+        });
+        monthCount += dayEvents.length;
+      }
+      tr.appendChild(td);
+    }
+    body.appendChild(tr);
+  }
+  $("count").textContent = `${monthCount} evento(s) neste mês`;
+}
+
+$("prev").addEventListener("click", () => {
+  viewMonth--;
+  if (viewMonth < 0) { viewMonth=11; viewYear--; }
+  renderCalendar();
+});
+$("next").addEventListener("click", () => {
+  viewMonth++;
+  if (viewMonth > 11) { viewMonth=0; viewYear++; }
+  renderCalendar();
+});
+$("today").addEventListener("click", () => {
+  viewYear=today.getFullYear(); viewMonth=today.getMonth(); renderCalendar();
+});
+$("reload").addEventListener("click", loadCSV);
+$("print").addEventListener("click", () => window.print());
+
+loadCSV();
+</script>
+</body>
+</html>

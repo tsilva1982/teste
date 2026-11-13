@@ -1,0 +1,32 @@
+AGENDA MENSAL — COMO UTILIZAR
+
+1. Mantenha estes arquivos juntos na mesma pasta:
+   - index.html
+   - agenda.csv
+   - iniciar.bat
+
+2. No Windows, dê dois cliques em iniciar.bat.
+   O navegador abrirá http://localhost:8000.
+   Mantenha a janela preta do servidor aberta enquanto utilizar a agenda.
+
+3. Para atualizar a agenda, edite agenda.csv no Excel ou em um editor de texto,
+   salve o arquivo e clique em "Recarregar CSV" no site.
+
+FORMATO DO CSV
+Use ponto e vírgula como separador e mantenha a primeira linha exatamente assim:
+data;atividade;descricao
+
+A data deve estar no formato AAAA-MM-DD, por exemplo:
+2026-11-13;Reunião;Reunião de equipe
+
+É possível repetir a mesma data para cadastrar mais de um evento.
+Campos com ponto e vírgula ou aspas devem ficar entre aspas duplas.
+Salve o CSV em UTF-8.
+
+IMPORTANTE
+- A agenda é somente leitura: não grava alterações no CSV.
+- Os dados são recarregados do arquivo agenda.csv.
+- Não abra index.html diretamente com duplo clique (file://), pois o navegador
+  bloqueia a leitura automática de arquivos locais. Use iniciar.bat.
+- É necessário ter Python instalado no Windows e disponível pelo comando "py".
+- Para encerrar o servidor, feche a janela do Prompt de Comando.
