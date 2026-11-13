@@ -1,0 +1,119 @@
+Data;Descrição;Categoria;Tipo;Valor
+01/01/2026;Medicamentos;Saúde;Despesa;205,03
+01/01/2026;Reparo doméstico;Moradia;Despesa;400,16
+04/01/2026;Depósito mensal;Receita;Receita;1620,99
+10/01/2026;Combustível;Transporte;Despesa;294,58
+20/01/2026;Consulta médica;Saúde;Despesa;321,51
+24/01/2026;Conta de energia;Moradia;Despesa;395,83
+26/01/2026;Receita eventual;Outros;Receita;332,72
+29/01/2026;Receita eventual;Outros;Receita;625,92
+30/01/2026;Depósito mensal;Receita;Receita;1606,15
+01/02/2026;Rendimento;Receita;Receita;116,54
+03/02/2026;Compra de alimentos;Alimentação;Despesa;618,87
+03/02/2026;Pagamento cuidador;Serviços;Despesa;2117,16
+06/02/2026;Conta de água;Moradia;Despesa;108,47
+09/02/2026;Medicamentos;Saúde;Despesa;132,11
+11/02/2026;Conta de água;Moradia;Despesa;86,42
+12/02/2026;Material de limpeza;Moradia;Despesa;74,52
+14/02/2026;Reparo doméstico;Moradia;Despesa;312,38
+17/02/2026;Reparo doméstico;Moradia;Despesa;240,42
+18/02/2026;Consulta médica;Saúde;Despesa;309,40
+22/02/2026;Conta de energia;Moradia;Despesa;198,25
+04/03/2026;Conta de energia;Moradia;Despesa;211,66
+07/03/2026;Medicamentos;Saúde;Despesa;162,77
+10/03/2026;Pagamento cuidador;Serviços;Despesa;2057,33
+12/03/2026;Depósito mensal;Receita;Receita;1649,81
+12/03/2026;Internet;Serviços;Despesa;135,94
+18/03/2026;Internet;Serviços;Despesa;114,62
+18/03/2026;Pagamento cuidador;Serviços;Despesa;2136,30
+21/03/2026;Compra de alimentos;Alimentação;Despesa;610,70
+22/03/2026;Rendimento;Receita;Receita;156,12
+24/03/2026;Medicamentos;Saúde;Despesa;181,16
+29/03/2026;Combustível;Transporte;Despesa;270,05
+31/03/2026;Reparo doméstico;Moradia;Despesa;298,71
+01/04/2026;Compra de alimentos;Alimentação;Despesa;418,63
+02/04/2026;Medicamentos;Saúde;Despesa;122,17
+06/04/2026;Reparo doméstico;Moradia;Despesa;252,64
+12/04/2026;Conta de água;Moradia;Despesa;95,29
+17/04/2026;Internet;Serviços;Despesa;128,70
+19/04/2026;Depósito mensal;Receita;Receita;1655,77
+20/04/2026;Pagamento cuidador;Serviços;Despesa;1995,28
+22/04/2026;Combustível;Transporte;Despesa;170,10
+27/04/2026;Transporte por aplicativo;Transporte;Despesa;63,11
+03/05/2026;Conta de energia;Moradia;Despesa;240,31
+08/05/2026;Reparo doméstico;Moradia;Despesa;302,52
+10/05/2026;Conta de água;Moradia;Despesa;93,58
+13/05/2026;Consulta médica;Saúde;Despesa;116,74
+13/05/2026;Conta de energia;Moradia;Despesa;256,34
+18/05/2026;Depósito mensal;Receita;Receita;1436,34
+18/05/2026;Medicamentos;Saúde;Despesa;150,25
+18/05/2026;Reparo doméstico;Moradia;Despesa;268,26
+20/05/2026;Conta de água;Moradia;Despesa;75,29
+21/05/2026;Compra de alimentos;Alimentação;Despesa;349,30
+24/05/2026;Depósito mensal;Receita;Receita;1644,20
+27/05/2026;Material de limpeza;Moradia;Despesa;121,75
+01/06/2026;Reembolso;Outros;Receita;154,86
+02/06/2026;Internet;Serviços;Despesa;121,86
+05/06/2026;Combustível;Transporte;Despesa;167,65
+11/06/2026;Material de limpeza;Moradia;Despesa;94,17
+13/06/2026;Pagamento cuidador;Serviços;Despesa;2065,26
+21/06/2026;Depósito mensal;Receita;Receita;1655,49
+26/06/2026;Medicamentos;Saúde;Despesa;141,66
+26/06/2026;Reembolso;Outros;Receita;76,26
+29/06/2026;Pagamento cuidador;Serviços;Despesa;1973,06
+05/07/2026;Internet;Serviços;Despesa;133,87
+06/07/2026;Reembolso;Outros;Receita;37,74
+06/07/2026;Transporte por aplicativo;Transporte;Despesa;62,31
+10/07/2026;Material de limpeza;Moradia;Despesa;67,43
+11/07/2026;Combustível;Transporte;Despesa;125,27
+11/07/2026;Conta de energia;Moradia;Despesa;374,46
+23/07/2026;Receita eventual;Outros;Receita;711,16
+27/07/2026;Compra de alimentos;Alimentação;Despesa;241,92
+30/07/2026;Conta de água;Moradia;Despesa;87,03
+31/07/2026;Internet;Serviços;Despesa;107,94
+02/08/2026;Reparo doméstico;Moradia;Despesa;384,60
+03/08/2026;Consulta médica;Saúde;Despesa;268,82
+03/08/2026;Depósito mensal;Receita;Receita;1629,31
+05/08/2026;Material de limpeza;Moradia;Despesa;131,00
+11/08/2026;Internet;Serviços;Despesa;98,12
+15/08/2026;Rendimento;Receita;Receita;124,86
+17/08/2026;Transporte por aplicativo;Transporte;Despesa;55,40
+21/08/2026;Material de limpeza;Moradia;Despesa;47,93
+23/08/2026;Transporte por aplicativo;Transporte;Despesa;74,16
+28/08/2026;Consulta médica;Saúde;Despesa;158,43
+29/08/2026;Conta de água;Moradia;Despesa;69,67
+29/08/2026;Material de limpeza;Moradia;Despesa;45,80
+05/09/2026;Conta de água;Moradia;Despesa;124,90
+08/09/2026;Compra de alimentos;Alimentação;Despesa;203,23
+10/09/2026;Reembolso;Outros;Receita;243,08
+12/09/2026;Consulta médica;Saúde;Despesa;295,42
+15/09/2026;Medicamentos;Saúde;Despesa;155,08
+17/09/2026;Manutenção;Serviços;Despesa;234,60
+19/09/2026;Transporte por aplicativo;Transporte;Despesa;53,30
+21/09/2026;Compra de alimentos;Alimentação;Despesa;319,14
+21/09/2026;Internet;Serviços;Despesa;99,73
+25/09/2026;Rendimento;Receita;Receita;91,39
+29/09/2026;Compra de alimentos;Alimentação;Despesa;319,99
+01/10/2026;Consulta médica;Saúde;Despesa;310,80
+03/10/2026;Consulta médica;Saúde;Despesa;105,01
+04/10/2026;Conta de energia;Moradia;Despesa;351,95
+05/10/2026;Internet;Serviços;Despesa;142,77
+05/10/2026;Reparo doméstico;Moradia;Despesa;210,78
+06/10/2026;Conta de água;Moradia;Despesa;124,98
+10/10/2026;Conta de água;Moradia;Despesa;85,02
+18/10/2026;Reembolso;Outros;Receita;227,69
+21/10/2026;Internet;Serviços;Despesa;147,25
+22/10/2026;Material de limpeza;Moradia;Despesa;165,85
+23/10/2026;Internet;Serviços;Despesa;107,08
+26/10/2026;Pagamento cuidador;Serviços;Despesa;2024,06
+26/10/2026;Receita eventual;Outros;Receita;656,26
+01/11/2026;Internet;Serviços;Despesa;138,32
+02/11/2026;Pagamento cuidador;Serviços;Despesa;2139,47
+07/11/2026;Combustível;Transporte;Despesa;110,65
+07/11/2026;Receita eventual;Outros;Receita;459,45
+09/11/2026;Reparo doméstico;Moradia;Despesa;374,31
+10/11/2026;Depósito mensal;Receita;Receita;1528,86
+11/11/2026;Manutenção;Serviços;Despesa;161,81
+12/11/2026;Pagamento cuidador;Serviços;Despesa;1800,57
+12/11/2026;Receita eventual;Outros;Receita;366,21
+13/11/2026;Pagamento cuidador;Serviços;Despesa;2157,30
