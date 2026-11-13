@@ -4,19 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agenda Semanal</title>
+<title>Agenda Mensal</title>
 
 <style>
 :root {
     --bg: #0b1120;
     --panel: #151f32;
-    --panel2: #1d2a40;
+    --cell: #1d2a40;
     --border: #30415b;
     --text: #e7edf7;
     --muted: #91a1b8;
     --blue: #2563eb;
-    --green: #16a36a;
-    --red: #dc4c64;
+    --green: #126b52;
+    --today: #8b5cf6;
 }
 
 * { box-sizing: border-box; }
@@ -29,58 +29,62 @@ body {
     color: var(--text);
 }
 
-header {
-    margin-bottom: 25px;
+.container {
+    max-width: 1800px;
+    margin: auto;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 27px;
-    color: #ffffff;
+    margin-bottom: 5px;
 }
 
 header p {
     color: var(--muted);
-    margin-top: 7px;
-}
-
-.container {
-    max-width: 1600px;
-    margin: auto;
+    margin-top: 5px;
 }
 
 .toolbar {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
+    margin: 25px 0;
+    align-items: center;
 }
 
-button {
+button, select {
     border: 0;
-    border-radius: 8px;
-    padding: 11px 17px;
-    color: white;
-    font-weight: 600;
+    border-radius: 7px;
+    padding: 11px 15px;
     cursor: pointer;
-    transition: .2s;
+    font-weight: 600;
 }
 
-button:hover {
-    filter: brightness(1.2);
-    transform: translateY(-1px);
-}
+button { color: white; }
+button:hover { filter: brightness(1.2); }
 
 .primary { background: var(--blue); }
-.success { background: var(--green); }
-.danger { background: var(--red); }
+.success { background: #16865e; }
+.danger { background: #bd4058; }
 .secondary { background: #34445e; }
+
+select {
+    background: var(--cell);
+    color: white;
+    border: 1px solid var(--border);
+}
+
+.mes {
+    font-size: 22px;
+    font-weight: bold;
+    min-width: 180px;
+    text-align: center;
+}
 
 .panel {
     background: var(--panel);
-    padding: 18px;
     border: 1px solid var(--border);
-    border-radius: 13px;
+    border-radius: 12px;
+    padding: 15px;
     overflow-x: auto;
 }
 
@@ -89,77 +93,88 @@ button:hover {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 15px;
     color: var(--muted);
+    margin-bottom: 15px;
     font-size: 13px;
 }
 
 table {
     width: 100%;
-    min-width: 950px;
+    min-width: 1050px;
     border-collapse: separate;
     border-spacing: 3px;
     table-layout: fixed;
 }
 
 th {
-    background: #243550;
-    color: #fff;
+    background: #263852;
     padding: 14px 5px;
     border-radius: 6px;
-    font-size: 13px;
+    color: white;
+    font-size: 12px;
 }
 
 th:first-child {
-    width: 85px;
+    width: 115px;
 }
 
 td {
-    background: var(--panel2);
+    background: var(--cell);
     border: 1px solid var(--border);
-    text-align: center;
-    height: 43px;
+    border-radius: 6px;
+    height: 100px;
     padding: 5px;
-    border-radius: 5px;
-    font-size: 11px;
+    vertical-align: top;
 }
 
-td.hora {
-    background: #26354d;
-    color: #aebed3;
+td.semana {
+    background: #263852;
+    color: #c4d3e8;
+    text-align: center;
+    vertical-align: middle;
     font-weight: bold;
 }
 
-td.celula {
+td.dia {
     cursor: pointer;
     transition: .2s;
-    color: #dce9fa;
 }
 
-td.celula:hover {
-    background: #304b70;
+td.dia:hover {
     border-color: #60a5fa;
+    background: #2c4260;
 }
 
-td.preenchido {
-    background: #164c46;
-    border-color: #238b70;
-    color: #c3fff0;
-    font-weight: 600;
+td.vazio {
+    background: #101a2b;
+    border-color: #1c2a3e;
+    cursor: default;
 }
 
-td.preenchido:hover {
-    background: #20665c;
+.numero {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #a9c9ff;
+    margin-bottom: 7px;
 }
 
-.footer {
-    margin-top: 15px;
-    color: var(--muted);
-    font-size: 12px;
-    text-align: right;
+.hoje {
+    border: 2px solid var(--today) !important;
+    background: #302451 !important;
 }
 
-/* Modal */
+.compromisso {
+    display: block;
+    background: var(--green);
+    color: #d7fff0;
+    padding: 5px;
+    margin-top: 4px;
+    border-radius: 4px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -173,16 +188,14 @@ td.preenchido:hover {
 
 .modal-content {
     width: 100%;
-    max-width: 420px;
+    max-width: 430px;
     background: #19263b;
     border: 1px solid var(--border);
     padding: 24px;
-    border-radius: 13px;
+    border-radius: 12px;
 }
 
-.modal-content h2 {
-    margin-top: 0;
-}
+.modal-content h2 { margin-top: 0; }
 
 input, textarea {
     width: 100%;
@@ -195,31 +208,34 @@ input, textarea {
     font-family: inherit;
 }
 
-textarea {
-    resize: vertical;
-    min-height: 75px;
-}
+textarea { min-height: 85px; }
 
-.modal-buttons {
+.botoes-modal {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
+.legenda {
+    display: flex;
+    gap: 18px;
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
 @media(max-width:600px) {
     body { padding: 12px; }
-    header h1 { font-size: 22px; }
-    .panel { padding: 8px; }
+    .mes { font-size: 18px; }
 }
 
 @media print {
     body { background: white; color: black; padding: 0; }
-    .toolbar, .footer, .modal { display: none !important; }
+    .toolbar, .modal { display: none !important; }
     .panel { background: white; border: 0; }
-    th { background: #243550 !important; print-color-adjust: exact; }
-    td { color: black; }
-    td.hora { background: #ddd !important; }
-    td.preenchido { background: #d0e8df !important; print-color-adjust: exact; }
+    th, td.semana { background: #263852 !important; color: white !important; print-color-adjust: exact; }
+    td { height: 75px; }
+    .compromisso { print-color-adjust: exact; }
 }
 </style>
 </head>
@@ -229,70 +245,68 @@ textarea {
 <div class="container">
 
 <header>
-    <h1>◈ Agenda Semanal</h1>
-    <p>Gerenciamento de horários e atividades da semana</p>
+    <h1>◈ Agenda Mensal</h1>
+    <p>Visualização mensal organizada por dia da semana</p>
 </header>
 
 <div class="toolbar">
-    <button class="primary" onclick="novoCompromisso()">
-        ＋ Novo compromisso
-    </button>
 
-    <button class="success" onclick="window.print()">
-        ▣ Imprimir
-    </button>
+    <button class="secondary" onclick="mudarMes(-1)">❮ Anterior</button>
 
-    <button class="secondary" onclick="exportar()">
-        ↓ Exportar dados
-    </button>
+    <div class="mes" id="nomeMes"></div>
 
-    <button class="danger" onclick="limparGrade()">
-        ✕ Limpar agenda
-    </button>
+    <button class="secondary" onclick="mudarMes(1)">Próximo ❯</button>
+
+    <button class="primary" onclick="irHoje()">Hoje</button>
+
+    <button class="primary" onclick="novoCompromisso()">＋ Novo evento</button>
+
+    <button class="success" onclick="window.print()">▣ Imprimir</button>
+
+    <button class="danger" onclick="limparMes()">✕ Limpar mês</button>
+
 </div>
 
 <div class="panel">
 
     <div class="info">
-        <span>● Verde: horário ocupado</span>
-        <span id="contador">0 compromissos cadastrados</span>
+        <span>● Roxo: dia atual</span>
+        <span>● Verde: compromisso cadastrado</span>
+        <span id="contador">0 eventos</span>
     </div>
 
-    <table id="grade">
+    <table>
         <thead>
             <tr>
-                <th>HORÁRIO</th>
-                <th>SEGUNDA</th>
-                <th>TERÇA</th>
-                <th>QUARTA</th>
-                <th>QUINTA</th>
-                <th>SEXTA</th>
-                <th>SÁBADO</th>
-                <th>DOMINGO</th>
+                <th>SEMANA</th>
+                <th>01</th><th>02</th><th>03</th><th>04</th>
+                <th>05</th><th>06</th><th>07</th>
             </tr>
         </thead>
-        <tbody id="corpoGrade"></tbody>
+        <tbody id="grade"></tbody>
     </table>
 
-    <div class="footer">
-        Clique em qualquer horário para cadastrar ou editar.
+    <div class="legenda">
+        <span>Grade mensal</span>
+        <span>Clique em um dia para cadastrar atividades.</span>
     </div>
 
 </div>
 </div>
 
-<!-- Modal -->
 <div class="modal" id="modal">
     <div class="modal-content">
-        <h2 id="tituloModal">Novo compromisso</h2>
+        <h2 id="tituloModal">Novo evento</h2>
+
+        <p id="dataSelecionada" style="color:#91a1b8"></p>
 
         <label>Atividade</label>
         <input id="atividade" placeholder="Ex: Reunião, trabalho...">
 
         <label>Descrição</label>
-        <textarea id="descricao" placeholder="Detalhes do compromisso"></textarea>
+        <textarea id="descricao" placeholder="Detalhes do evento"></textarea>
 
-        <div class="modal-buttons">
+        <div class="botoes-modal">
             <button class="primary" onclick="salvar()">Salvar</button>
             <button class="danger" onclick="excluir()">Excluir</button>
             <button class="secondary" onclick="fechar()">Cancelar</button>
@@ -302,44 +316,144 @@ textarea {
 
 <script>
 
-const dias = [
-    "Segunda", "Terça", "Quarta",
-    "Quinta", "Sexta", "Sábado", "Domingo"
+const nomesMeses = [
+    "Janeiro","Fevereiro","Março","Abril",
+    "Maio","Junho","Julho","Agosto",
+    "Setembro","Outubro","Novembro","Dezembro"
 ];
 
-let dados = JSON.parse(localStorage.getItem("agendaSemanal") || "{}");
+const diasSemana = [
+    "SEGUNDA","TERÇA","QUARTA",
+    "QUINTA","SEXTA","SÁBADO","DOMINGO"
+];
+
+let dataAtual = new Date();
+let ano = dataAtual.getFullYear();
+let mes = dataAtual.getMonth();
 let selecionado = null;
 
-const corpo = document.getElementById("corpoGrade");
+let dados = JSON.parse(
+    localStorage.getItem("agendaMensal") || "{}"
+);
 
-for (let h = 0; h < 24; h++) {
-
-    const inicio = String(h).padStart(2,"0");
-    const fim = String(h+1).padStart(2,"0");
-
-    let tr = document.createElement("tr");
-
-    let hora = document.createElement("td");
-    hora.className = "hora";
-    hora.textContent = inicio + " - " + fim;
-    tr.appendChild(hora);
-
-    dias.forEach((dia,d) => {
-
-        let td = document.createElement("td");
-        td.className = "celula";
-        td.dataset.id = h + "-" + d;
-
-        td.onclick = () => abrir(td.dataset.id);
-
-        tr.appendChild(td);
-
-    });
-
-    corpo.appendChild(tr);
+function chave(y,m,d) {
+    return `${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
 }
 
-function abrir(id) {
+function renderizar() {
+
+    document.getElementById("nomeMes").textContent =
+        nomesMeses[mes] + " / " + ano;
+
+    const grade = document.getElementById("grade");
+    grade.innerHTML = "";
+
+    const primeiroDia = new Date(ano,mes,1);
+    const totalDias = new Date(ano,mes+1,0).getDate();
+
+    // Converte domingo (0) para posição final (6)
+    const inicio = (primeiroDia.getDay() + 6) % 7;
+
+    const semanas = Math.ceil((inicio + totalDias) / 7);
+
+    for (let semana = 0; semana < semanas; semana++) {
+
+        let tr = document.createElement("tr");
+
+        let tdSemana = document.createElement("td");
+        tdSemana.className = "semana";
+        tdSemana.textContent = `SEMANA ${semana+1}`;
+        tr.appendChild(tdSemana);
+
+        for (let diaSemana = 0; diaSemana < 7; diaSemana++) {
+
+            let dia = semana * 7 + diaSemana - inicio + 1;
+
+            let td = document.createElement("td");
+
+            if (dia < 1 || dia > totalDias) {
+                td.className = "vazio";
+                tr.appendChild(td);
+                continue;
+            }
+
+            td.className = "dia";
+
+            let id = chave(ano,mes,dia);
+            let item = dados[id];
+
+            let numero = document.createElement("div");
+            numero.className = "numero";
+
+            let span = document.createElement("span");
+            span.textContent = String(dia).padStart(2,"0");
+            numero.appendChild(span);
+
+            if (
+                dia === dataAtual.getDate() &&
+                mes === dataAtual.getMonth() &&
+                ano === dataAtual.getFullYear()
+            ) {
+                td.classList.add("hoje");
+            }
+
+            td.appendChild(numero);
+
+            if (item) {
+
+                let evento = document.createElement("span");
+                evento.className = "compromisso";
+                evento.textContent = item.nome;
+                evento.title = item.descricao || "";
+                td.appendChild(evento);
+
+            }
+
+            td.onclick = () => abrir(id,dia);
+
+            tr.appendChild(td);
+        }
+
+        grade.appendChild(tr);
+    }
+
+    atualizarContador();
+}
+
+function mudarMes(valor) {
+
+    mes += valor;
+
+    if (mes < 0) {
+        mes = 11;
+        ano--;
+    }
+
+    if (mes > 11) {
+        mes = 0;
+        ano++;
+    }
+
+    renderizar();
+}
+
+function irHoje() {
+    ano = dataAtual.getFullYear();
+    mes = dataAtual.getMonth();
+    renderizar();
+}
+
+function novoCompromisso() {
+
+    let dia = Math.min(
+        dataAtual.getDate(),
+        new Date(ano,mes+1,0).getDate()
+    );
+
+    abrir(chave(ano,mes,dia),dia);
+}
+
+function abrir(id,dia) {
 
     selecionado = id;
 
@@ -348,23 +462,19 @@ function abrir(id) {
     document.getElementById("atividade").value = item.nome || "";
     document.getElementById("descricao").value = item.descricao || "";
 
+    document.getElementById("dataSelecionada").textContent =
+        `${dia} de ${nomesMeses[mes]} de ${ano}`;
+
     document.getElementById("tituloModal").textContent =
-        "Editar compromisso";
+        item.nome ? "Editar evento" : "Novo evento";
 
     document.getElementById("modal").style.display = "flex";
-}
-
-function novoCompromisso() {
-    abrir("8-0");
-    document.getElementById("atividade").value = "";
-    document.getElementById("descricao").value = "";
-    document.getElementById("tituloModal").textContent =
-        "Novo compromisso (inicialmente segunda-feira, 08h)";
 }
 
 function salvar() {
 
     let nome = document.getElementById("atividade").value.trim();
+
     let descricao = document.getElementById("descricao").value.trim();
 
     if (!nome) {
@@ -372,7 +482,7 @@ function salvar() {
         return;
     }
 
-    dados[selecionado] = {nome, descricao};
+    dados[selecionado] = {nome,descricao};
 
     persistir();
     fechar();
@@ -380,12 +490,12 @@ function salvar() {
 
 function excluir() {
 
-    if (!selecionado || !dados[selecionado]) {
+    if (!dados[selecionado]) {
         fechar();
         return;
     }
 
-    if (!confirm("Deseja excluir este compromisso?")) return;
+    if (!confirm("Excluir este evento?")) return;
 
     delete dados[selecionado];
 
@@ -393,58 +503,42 @@ function excluir() {
     fechar();
 }
 
+function limparMes() {
+
+    if (!confirm("Deseja excluir todos os eventos deste mês?")) return;
+
+    Object.keys(dados).forEach(id => {
+        let [y,m] = id.split("-").map(Number);
+
+        if (y === ano && m === mes+1) {
+            delete dados[id];
+        }
+    });
+
+    persistir();
+}
+
+function persistir() {
+    localStorage.setItem("agendaMensal",JSON.stringify(dados));
+    renderizar();
+}
+
+function atualizarContador() {
+
+    let total = Object.keys(dados).filter(id => {
+        let [y,m] = id.split("-").map(Number);
+        return y === ano && m === mes+1;
+    }).length;
+
+    document.getElementById("contador").textContent =
+        `${total} ${total === 1 ? "evento cadastrado" : "eventos cadastrados"}`;
+}
+
 function fechar() {
     document.getElementById("modal").style.display = "none";
 }
 
-function persistir() {
-
-    localStorage.setItem("agendaSemanal", JSON.stringify(dados));
-    atualizar();
-}
-
-function atualizar() {
-
-    document.querySelectorAll(".celula").forEach(td => {
-
-        let item = dados[td.dataset.id];
-
-        td.textContent = item ? item.nome : "";
-        td.classList.toggle("preenchido", !!item);
-
-        td.title = item ? item.descricao : "";
-
-    });
-
-    let total = Object.keys(dados).length;
-
-    document.getElementById("contador").textContent =
-        total + (total === 1 ? " compromisso cadastrado" : " compromissos cadastrados");
-}
-
-function limparGrade() {
-
-    if (!confirm("Deseja apagar todos os compromissos?")) return;
-
-    dados = {};
-    persistir();
-}
-
-function exportar() {
-
-    let blob = new Blob(
-        [JSON.stringify(dados,null,2)],
-        {type:"application/json"}
-    );
-
-    let link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "agenda-semanal.json";
-    link.click();
-    URL.revokeObjectURL(link.href);
-}
-
-atualizar();
+renderizar();
 
 </script>
 
