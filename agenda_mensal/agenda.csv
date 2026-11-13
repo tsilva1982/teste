@@ -1,6 +1,10 @@
 data;inicio;fim;atividade;descricao;cor
-2026-11-13;00;07;Plantão;Bloco madrugada e manhã;#2563EB
-2026-11-13;19;24;Descanso;Bloco da noite;#8B5CF6
-2026-11-13;09;10;Reunião;Reunião administrativa;#D97706
-2026-11-14;07;08;Atividade pessoal;Compromisso pessoal;#16A34A
-2026-11-17;12;13;Almoço;Intervalo para almoço;#0891B2
+13/11/2026;00;07;PlantÃ£o;Bloco madrugada e manhÃ£;#2563EB
+13/11/2026;19;24;Descanso;Bloco da noite;#8B5CF6
+13/11/2026;09;10;ReuniÃ£o;ReuniÃ£o administrativa;#D97706
+14/11/2026;07;08;Atividade pessoal;Compromisso pessoal;#16A34A
+17/11/2026;12;13;AlmoÃ§o;Intervalo para almoÃ§o;#0891B2
+01/11/2026;00;07;Meirinha;Plantão Noturno;#2563EB
+01/11/2026;7;17;Janaina;Dia;#8B5CF6
+01/11/2026;17;19;Elieuda;Extra - Entrada Antecipada;#D97706
+01/11/2026;19;24;Elieuda;Plantão Noturno;#16A34A
