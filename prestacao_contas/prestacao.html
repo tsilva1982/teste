@@ -63,8 +63,7 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
     <div><h1>Prestação de Contas</h1><p class="sub">Consulta e visualização de movimentações financeiras</p></div>
   </div>
   <div class="header-actions">
-    <button class="btn" id="importBtn">↑ Carregar CSV</button>
-    <input id="csvFile" type="file" accept=".csv,text/csv" hidden>
+    <button class="btn primary" id="refreshBtn">↻ Atualizar dados</button>
     <button class="btn" id="exportBtn">↓ Exportar CSV</button>
   </div>
 </header>
@@ -73,6 +72,7 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
   <div><h2>Visão geral</h2><p>Acompanhe receitas, despesas e saldo em um só lugar.</p></div>
   <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><label for="monthFilter">Período:</label><input class="period" type="month" id="monthFilter" aria-label="Filtrar por mês"><button class="btn" type="button" id="allPeriodsBtn">Todos</button></div>
 </div>
+<div id="sourceStatus" class="note" role="status" style="margin:0 0 14px">Conectando ao arquivo CSV do GitHub...</div>
 
 <div class="cards">
   <div class="card"><div class="metric-label">Total de receitas</div><div class="metric income" id="incomeTotal">R$ 0,00</div><div class="metric-note">Entradas no período selecionado</div></div>
@@ -99,7 +99,7 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
     <tbody id="entriesBody"><tr><td colspan="5" class="empty">Nenhum lançamento carregado.</td></tr></tbody></table>
   </div>
 </section>
-<footer>Prestação de Contas • Painel de consulta • Dados carregados a partir de arquivo CSV</footer>
+<footer>Prestação de Contas • Painel de consulta • Fonte: CSV no GitHub</footer>
 </div>
 <div class="toast" id="toast" role="status"></div>
 
@@ -109,9 +109,13 @@ const money = value => new Intl.NumberFormat('pt-BR',{style:'currency',currency:
 const today = new Date();
 $('monthFilter').value = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
 let entries = [];
-try { entries = JSON.parse(localStorage.getItem('prestacaoContasEntries') || '[]'); } catch(e) { entries = []; }
+const CSV_URL = 'https://raw.githubusercontent.com/tsilva1982/teste/main/prestacao_contas/lancamentos.csv';
 
-function save(){localStorage.setItem('prestacaoContasEntries',JSON.stringify(entries));}
+function setSourceStatus(message, isError=false) {
+ const el = $('sourceStatus');
+ el.textContent = message;
+ el.style.color = isError ? 'var(--red)' : 'var(--muted)';
+}
 function selected(){const m=$('monthFilter').value;return entries.filter(e=>!m||e.date.startsWith(m)).sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id);}
 function render(){
  const list=selected(), income=list.filter(e=>e.type==='income').reduce((s,e)=>s+e.amount,0), expense=list.filter(e=>e.type==='expense').reduce((s,e)=>s+e.amount,0);
@@ -168,13 +172,18 @@ function parseAmount(value){
  if(s.includes(','))s=s.replace(/\./g,'').replace(',','.');
  const n=Number(s);return Number.isFinite(n)?n:NaN;
 }
-$('importBtn').addEventListener('click',()=>$('csvFile').click());
-$('csvFile').addEventListener('change',async e=>{
- const file=e.target.files[0];if(!file)return;
- try{
-   const csvText=await file.text();
+
+async function loadRemoteCSV(){
+ const button=$('refreshBtn');
+ button.disabled=true;
+ button.textContent='Carregando...';
+ setSourceStatus('Buscando lançamentos no GitHub...');
+ try {
+   const response=await fetch(`${CSV_URL}?t=${Date.now()}`,{cache:'no-store'});
+   if(!response.ok) throw new Error(`Não foi possível acessar o CSV (HTTP ${response.status}). Confira se o arquivo lancamentos.csv está publicado na pasta prestacao_contas e se o repositório é público.`);
+   const csvText=await response.text();
    const rows=parseCSV(csvText);
-   if(!rows.length)throw new Error('O CSV está vazio ou não contém cabeçalho e linhas de dados.');
+   if(!rows.length) throw new Error('O CSV está vazio ou não contém cabeçalho e linhas de dados.');
    const parsed=[],errors=[];
    rows.forEach((row,index)=>{
      const desc=String(row.descricao||row.historico||row.lancamento||'').trim();
@@ -186,23 +195,30 @@ $('csvFile').addEventListener('change',async e=>{
      if(['receita','entrada','income'].includes(typeRaw))type='income';
      if(['despesa','saida','out','expense'].includes(typeRaw))type='expense';
      if(!desc||!date||!Number.isFinite(amount)||amount<=0||!type){errors.push(index+2);return;}
-     parsed.push({id:Date.now()+index,description:desc,amount,type,category,date});
+     parsed.push({id:index+1,description:desc,amount,type,category,date});
    });
-   if(!parsed.length)throw new Error('Nenhuma linha válida. Verifique as colunas Data, Descrição, Categoria, Tipo e Valor.');
-   const message=`Arquivo: ${file.name}\nLançamentos válidos: ${parsed.length}${errors.length?'\nLinhas inválidas ignoradas: '+errors.join(', '):''}\n\nCarregar este arquivo para exibição? Os dados atualmente exibidos serão substituídos.`;
-   if(confirm(message)){
-     entries=parsed;
-     save();
-     const latest=parsed.map(e=>e.date.slice(0,7)).sort().at(-1);
-     if(latest)$('monthFilter').value=latest;
-     render();toast(`${parsed.length} lançamento(s) carregado(s) do CSV.`);
-   }
- }catch(err){alert('Erro ao ler o CSV: '+err.message);}
- finally{e.target.value='';}
-});
+   if(!parsed.length) throw new Error('Nenhuma linha válida. Verifique as colunas Data, Descrição, Categoria, Tipo e Valor.');
+   entries=parsed;
+   render();
+   const latest=parsed.map(e=>e.date.slice(0,7)).sort().at(-1);
+   const currentMonth=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+   const availableMonths=new Set(parsed.map(e=>e.date.slice(0,7)));
+   $('monthFilter').value=availableMonths.has(currentMonth)?currentMonth:(latest||'');
+   render();
+   setSourceStatus(`Dados carregados do GitHub • ${parsed.length} lançamentos • Última atualização: ${new Date().toLocaleString('pt-BR')}${errors.length?` • ${errors.length} linha(s) inválida(s) ignorada(s)`:''}`);
+ } catch(error) {
+   setSourceStatus(`Falha ao carregar o CSV: ${error.message}`,true);
+ } finally {
+   button.disabled=false;
+   button.textContent='↻ Atualizar dados';
+ }
+}
+$('refreshBtn').addEventListener('click',loadRemoteCSV);
 $('allPeriodsBtn').addEventListener('click',()=>{$('monthFilter').value='';render();});
 
 render();
+loadRemoteCSV();
+setInterval(loadRemoteCSV,5*60*1000);
 </script>
 </body>
 </html>
