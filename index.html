@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página de Teste</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 4px 10px #ccc;
+        }
+
+        h1 {
+            color: #1565c0;
+        }
+
+        button {
+            background: #1565c0;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Olá, mundo!</h1>
+
+        <p>Minha primeira página HTML está funcionando.</p>
+
+        <button onclick="mostrarMensagem()">
+            Clique aqui
+        </button>
+
+        <p id="mensagem"></p>
+    </div>
+
+    <script>
+        function mostrarMensagem() {
+            document.getElementById("mensagem").innerHTML =
+                "Teste realizado com sucesso!";
+        }
+    </script>
+
+</body>
+</html>
