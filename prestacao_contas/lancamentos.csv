@@ -1,117 +1,179 @@
 Data;Descrição;Categoria;Tipo;Valor
-01/01/2026;Medicamentos;Saúde;Despesa;205,03
-01/01/2026;Reparo doméstico;Moradia;Despesa;400,16
-04/01/2026;Depósito mensal;Receita;Receita;1620,99
-10/01/2026;Combustível;Transporte;Despesa;294,58
-20/01/2026;Consulta médica;Saúde;Despesa;321,51
-24/01/2026;Conta de energia;Moradia;Despesa;395,83
-26/01/2026;Receita eventual;Outros;Receita;332,72
-29/01/2026;Receita eventual;Outros;Receita;625,92
-30/01/2026;Depósito mensal;Receita;Receita;1606,15
-01/02/2026;Rendimento;Receita;Receita;116,54
-03/02/2026;Compra de alimentos;Alimentação;Despesa;618,87
-03/02/2026;Pagamento cuidador;Serviços;Despesa;2117,16
-06/02/2026;Conta de água;Moradia;Despesa;108,47
-09/02/2026;Medicamentos;Saúde;Despesa;132,11
-11/02/2026;Conta de água;Moradia;Despesa;86,42
-12/02/2026;Material de limpeza;Moradia;Despesa;74,52
-14/02/2026;Reparo doméstico;Moradia;Despesa;312,38
-17/02/2026;Reparo doméstico;Moradia;Despesa;240,42
-18/02/2026;Consulta médica;Saúde;Despesa;309,40
-22/02/2026;Conta de energia;Moradia;Despesa;198,25
-04/03/2026;Conta de energia;Moradia;Despesa;211,66
-07/03/2026;Medicamentos;Saúde;Despesa;162,77
-10/03/2026;Pagamento cuidador;Serviços;Despesa;2057,33
-12/03/2026;Depósito mensal;Receita;Receita;1649,81
-12/03/2026;Internet;Serviços;Despesa;135,94
-18/03/2026;Internet;Serviços;Despesa;114,62
-18/03/2026;Pagamento cuidador;Serviços;Despesa;2136,30
-21/03/2026;Compra de alimentos;Alimentação;Despesa;610,70
-22/03/2026;Rendimento;Receita;Receita;156,12
-24/03/2026;Medicamentos;Saúde;Despesa;181,16
-29/03/2026;Combustível;Transporte;Despesa;270,05
-31/03/2026;Reparo doméstico;Moradia;Despesa;298,71
-01/04/2026;Compra de alimentos;Alimentação;Despesa;418,63
-02/04/2026;Medicamentos;Saúde;Despesa;122,17
-06/04/2026;Reparo doméstico;Moradia;Despesa;252,64
-12/04/2026;Conta de água;Moradia;Despesa;95,29
-17/04/2026;Internet;Serviços;Despesa;128,70
-19/04/2026;Depósito mensal;Receita;Receita;1655,77
-20/04/2026;Pagamento cuidador;Serviços;Despesa;1995,28
-22/04/2026;Combustível;Transporte;Despesa;170,10
-27/04/2026;Transporte por aplicativo;Transporte;Despesa;63,11
-03/05/2026;Conta de energia;Moradia;Despesa;240,31
-08/05/2026;Reparo doméstico;Moradia;Despesa;302,52
-10/05/2026;Conta de água;Moradia;Despesa;93,58
-13/05/2026;Consulta médica;Saúde;Despesa;116,74
-13/05/2026;Conta de energia;Moradia;Despesa;256,34
-18/05/2026;Depósito mensal;Receita;Receita;1436,34
-18/05/2026;Medicamentos;Saúde;Despesa;150,25
-18/05/2026;Reparo doméstico;Moradia;Despesa;268,26
-20/05/2026;Conta de água;Moradia;Despesa;75,29
-21/05/2026;Compra de alimentos;Alimentação;Despesa;349,30
-24/05/2026;Depósito mensal;Receita;Receita;1644,20
-27/05/2026;Material de limpeza;Moradia;Despesa;121,75
-01/06/2026;Reembolso;Outros;Receita;154,86
-02/06/2026;Internet;Serviços;Despesa;121,86
-05/06/2026;Combustível;Transporte;Despesa;167,65
-11/06/2026;Material de limpeza;Moradia;Despesa;94,17
-13/06/2026;Pagamento cuidador;Serviços;Despesa;2065,26
-21/06/2026;Depósito mensal;Receita;Receita;1655,49
-26/06/2026;Medicamentos;Saúde;Despesa;141,66
-26/06/2026;Reembolso;Outros;Receita;76,26
-29/06/2026;Pagamento cuidador;Serviços;Despesa;1973,06
-05/07/2026;Internet;Serviços;Despesa;133,87
-06/07/2026;Reembolso;Outros;Receita;37,74
-06/07/2026;Transporte por aplicativo;Transporte;Despesa;62,31
-10/07/2026;Material de limpeza;Moradia;Despesa;67,43
-11/07/2026;Combustível;Transporte;Despesa;125,27
-11/07/2026;Conta de energia;Moradia;Despesa;374,46
-23/07/2026;Receita eventual;Outros;Receita;711,16
-27/07/2026;Compra de alimentos;Alimentação;Despesa;241,92
-30/07/2026;Conta de água;Moradia;Despesa;87,03
-31/07/2026;Internet;Serviços;Despesa;107,94
-02/08/2026;Reparo doméstico;Moradia;Despesa;384,60
-03/08/2026;Consulta médica;Saúde;Despesa;268,82
-03/08/2026;Depósito mensal;Receita;Receita;1629,31
-05/08/2026;Material de limpeza;Moradia;Despesa;131,00
-11/08/2026;Internet;Serviços;Despesa;98,12
-15/08/2026;Rendimento;Receita;Receita;124,86
-17/08/2026;Transporte por aplicativo;Transporte;Despesa;55,40
-21/08/2026;Material de limpeza;Moradia;Despesa;47,93
-23/08/2026;Transporte por aplicativo;Transporte;Despesa;74,16
-28/08/2026;Consulta médica;Saúde;Despesa;158,43
-29/08/2026;Conta de água;Moradia;Despesa;69,67
-29/08/2026;Material de limpeza;Moradia;Despesa;45,80
-05/09/2026;Conta de água;Moradia;Despesa;124,90
-08/09/2026;Compra de alimentos;Alimentação;Despesa;203,23
-10/09/2026;Reembolso;Outros;Receita;243,08
-12/09/2026;Consulta médica;Saúde;Despesa;295,42
-15/09/2026;Medicamentos;Saúde;Despesa;155,08
-17/09/2026;Manutenção;Serviços;Despesa;234,60
-19/09/2026;Transporte por aplicativo;Transporte;Despesa;53,30
-21/09/2026;Compra de alimentos;Alimentação;Despesa;319,14
-21/09/2026;Internet;Serviços;Despesa;99,73
-25/09/2026;Rendimento;Receita;Receita;91,39
-29/09/2026;Compra de alimentos;Alimentação;Despesa;319,99
-01/10/2026;Consulta médica;Saúde;Despesa;310,80
-03/10/2026;Consulta médica;Saúde;Despesa;105,01
-04/10/2026;Conta de energia;Moradia;Despesa;351,95
-05/10/2026;Internet;Serviços;Despesa;142,77
-05/10/2026;Reparo doméstico;Moradia;Despesa;210,78
-06/10/2026;Conta de água;Moradia;Despesa;124,98
-10/10/2026;Conta de água;Moradia;Despesa;85,02
-18/10/2026;Reembolso;Outros;Receita;227,69
-21/10/2026;Internet;Serviços;Despesa;147,25
-22/10/2026;Material de limpeza;Moradia;Despesa;165,85
-23/10/2026;Internet;Serviços;Despesa;107,08
-26/10/2026;Pagamento cuidador;Serviços;Despesa;2024,06
-26/10/2026;Receita eventual;Outros;Receita;656,26
-01/11/2026;Internet;Serviços;Despesa;138,32
-02/11/2026;Pagamento cuidador;Serviços;Despesa;2139,47
-07/11/2026;Combustível;Transporte;Despesa;110,65
-07/11/2026;Receita eventual;Outros;Receita;459,45
-09/11/2026;Reparo doméstico;Moradia;Despesa;374,31
+01/10/2026;Recebimento Proventos;Salario;Receita;34934,26
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;135
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;640
+01/10/2026;Pague Menos;Farmácia;Despesa;137,57
+01/10/2026;Pague Menos;Farmácia;Despesa;144,99
+01/10/2026;Pagamento Tv a Cabo;Residencial;Despesa;246,56
+01/10/2026;Drogasil;Farmácia;Despesa;320,04
+01/10/2026;Pagamento Emprestimo sem juros;Empréstimo;Despesa;7500
+01/10/2026;Pagamento Funerária;Residencial;Despesa;166,42
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
+01/10/2026;Pagamento Energia Residencial;Residencial;Despesa;262,98
+01/10/2026;Pagamento IPTU;Residencial;Despesa;365,92
+01/10/2026;Pagamento Energia Sucatinga;Sucatinga;Despesa;674,97
+01/10/2026;Pix Enviado - Erick da Silva Oli;Sucatinga;Despesa;1200
+01/10/2026;Pix Enviado - Ana Maria Leite de Olivei;Doação;Despesa;1900
+01/10/2026;Compra Internet;Residencial;Despesa;26,22
+01/10/2026;Compra Internet;Residencial;Despesa;32,99
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
+01/10/2026;Compra Internet;Residencial;Despesa;199,8
+01/10/2026;Saque;Residencial;Despesa;500
+01/10/2026;Pagamento Boleto Unimed Cartão;Residencial;Despesa;2601,99
+01/10/2026;Plano Móvel - TIM;Residencial;Despesa;95,99
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/10/2026;Cobrança Tarifas e Impostos;Tarifa Pacote de Serviços;Despesa;120,4
+01/10/2026;Pagamento Seguro Veicular;Residencial;Despesa;168,22
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+01/10/2026;TED - Vanda Cunha ;Doação;Despesa;200
+01/10/2026;Cobrança Tarifas e Impostos;Tarifas;Despesa;293,44
+01/10/2026;Acyra Florencio de Ale;Residencial;Despesa;3000
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230,01
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;320
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2164
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1703
+01/10/2026;Cobrança Tarifas e Impostos;Tarifas;Despesa;37,77
+01/10/2026;Pagamento de Gás;Residencial;Despesa;188,89
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;300
+02/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+02/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;160
+02/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+02/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+02/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+02/10/2026;Pagamento Condomínio;Residencial;Despesa;1527,11
+05/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;60
+05/10/2026;Drogasil;Farmácia;Despesa;141,9
+05/10/2026;Pague Menos;Farmácia;Despesa;173,2
+05/10/2026;Pagamento Imobiliária;Residencial;Despesa;178
+05/10/2026;Pagamento Serviço Podologo;Residencial;Despesa;180
+05/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
+05/10/2026;Drogasil;Farmácia;Despesa;604,06
+05/10/2026;Pagamento Aluguel;Residencial;Despesa;3217,3
+06/10/2026;Pix - Thiago Leite de Oliveira;Empréstimo;Receita;2000
+06/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;50
+06/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+06/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+06/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
+07/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+08/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;40
+08/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+08/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+08/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;400
+09/10/2026;Pix - Thiago Leite de Oliveira;Empréstimo;Receita;2000
+09/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+09/10/2026;Pagamento Manutenção;Residencial;Despesa;130
+09/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+13/10/2026;Pix - Thiago Leite de Oliveira;Empréstimo;Receita;3000
+13/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+13/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
+13/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+13/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
+14/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
+14/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;40
+14/10/2026;Pague Menos;Farmácia;Despesa;354,5
+14/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;520
+14/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1520
+15/10/2026;Pix - Thiago Leite de Oliveira;Empréstimo;Receita;500
+15/10/2026;Internet Escritório;Residencial;Despesa;71,48
+15/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
+15/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+15/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+15/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+15/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;811
+19/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+20/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
+01/09/2026;Recebimento de Proventos - TRIBUNAL REGIONAL D;Salário;Receita;37345,38
+01/09/2026;Compra com Cartão - 23/08 17:01 PAGUE MENOS;Farmácia;Despesa;38,99
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;370
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;650
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;650
+01/09/2026;Pix - Enviado - Geriatra;Residencial;Despesa;900
+01/09/2026;Pix - Enviado - Ana Maria Leite de Olivei;Doação;Despesa;1900
+01/09/2026;Pix Agendado - Empréstimo Jul/26;Empréstimo;Despesa;1900
+01/09/2026;Pix Agendado - Empréstimo Jul/26;Empréstimo;Despesa;2000
+01/09/2026;Pix Agendado - Empréstimo Jul/26;Empréstimo;Despesa;3100
+01/09/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/09/2026;Tarifa Pacote de Serviços - Cobrança referente 25/08/2026;Tarifas;Despesa;120,4
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
+01/09/2026;BB Seguro Auto - SEGURO AUTO BB/MAPFRE;Residencial;Despesa;168,22
+01/09/2026;Cobrança de Juros - Juros Saldo Devedor Conta;Tarifas;Despesa;216,09
+01/09/2026;Pagamento de Boleto - ALARES INTERNET SA;Residencial;Despesa;246,32
+01/09/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Residencial;Despesa;563,1
+01/09/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
+01/09/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2676,19
+01/09/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;3196,6
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1330
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1520
+01/09/2026;Compra com Cartão - 27/08 18:21 DROGASIL 2321;Farmácia;Despesa;25,49
+01/09/2026;Compra com Cartão - 27/08 16:44 PHARMAVIE;Farmácia;Despesa;45
+01/09/2026;Recebimentos Diversos - LIVELO S.A.;Estorno;Receita;19,91
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;160
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;250
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;810
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;999,62
+01/09/2026;Pix - Enviado -ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
+01/09/2026;Transferência enviada - ACYRA F A HOLANDA;Residencial;Despesa;5000
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;344
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;373
+01/09/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;41
+01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
+01/09/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;171,93
+02/09/2026;Pix - Enviado - 02/09 14:30 CLARO;Residencial;Despesa;69,9
+02/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+02/09/2026;Compra com Cartão - 02/09 17:00 Raia Drogasil;Farmácia;Despesa;132,99
+02/09/2026;Compra com Cartão - 02/09 16:34 PAGUE MENOS;Farmácia;Despesa;174,98
+02/09/2026;TED Transf.Eletr.Disponiv - VANDA CUNHA DE OL;Doação;Despesa;200
+02/09/2026;Pix - Enviado - 02/09 14:18 ENEL DISTRIBUICAO CEARA;Sucatinga;Despesa;614,52
+02/09/2026;Compra com Cartão - 02/09 17:23 DROGASIL 2321;Farmácia;Despesa;679,78
+02/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1001,72
+03/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+08/09/2026;Pix - Recebido - 06/09 23:11 THIAGO LEIT;Empréstimo;Receita;2000
+08/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
+08/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+08/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
+08/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
+08/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;520
+10/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+10/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;250
+10/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;400
+11/09/2026;Pix - Recebido - 11/09 11:54 THIAGO LEIT;Empréstimo;Receita;900
+11/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+11/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+14/09/2026;Pix - Recebido - 14/09 21:32 THIAGO LEIT;Empréstimo;Receita;3600
+14/09/2026;Compra com Cartão - 14/09 21:32 EXTRA FARMA    7059;Farmácia;Despesa;20,99
+14/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+14/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;160
+14/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+14/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+15/09/2026;Pix - Recebido - 15/09 09:09 FRANCISCA J JO;Estorno;Receita;811
+15/09/2026;Pix - Recebido - 15/09 10:00 Thiago Leite d;Empréstimo;Receita;365
+15/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
+15/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;30
+15/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+15/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+15/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;811
+15/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;830
+15/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
+15/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1630
+18/09/2026;Pix - Recebido - 18/09 21:58 Thiago Leite d;Empréstimo;Receita;635
+18/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+18/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+18/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despe
 10/11/2026;Depósito mensal;Receita;Receita;1528,86
 11/11/2026;Manutenção;Serviços;Despesa;161,81
 12/11/2026;Pagamento cuidador;Serviços;Despesa;1800,57
