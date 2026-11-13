@@ -3,238 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agenda Mensal</title>
+<title>Agenda Mensal por Intervalos</title>
 <style>
-:root {
-  --bg:#0b1120; --panel:#151f32; --cell:#1d2a40; --border:#30415b;
-  --text:#e7edf7; --muted:#91a1b8; --blue:#2563eb; --purple:#8b5cf6;
-  --green:#126b52; --red:#bd4058;
-}
+:root{--bg:#0b1120;--panel:#151f32;--cell:#1d2a40;--border:#30415b;--text:#e7edf7;--muted:#91a1b8;--blue:#2563eb;--purple:#8b5cf6;--green:#126b52;--greenText:#d7fff0;--red:#bd4058}
 *{box-sizing:border-box}
 body{margin:0;padding:24px;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text)}
-.container{max-width:1800px;margin:auto}
+.container{max-width:1900px;margin:auto}
 header h1{margin:0 0 6px;font-size:27px}
 header p{margin:0;color:var(--muted)}
 .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:24px 0}
-button{border:0;border-radius:7px;padding:11px 15px;color:white;font-weight:600;cursor:pointer}
+button{border:0;border-radius:7px;padding:11px 15px;color:#fff;font-weight:600;cursor:pointer}
 button:hover{filter:brightness(1.15)}
-.primary{background:var(--blue)} .secondary{background:#34445e}
+.primary{background:var(--blue)}.secondary{background:#34445e}.danger{background:var(--red)}
 .month{font-size:21px;font-weight:700;min-width:190px;text-align:center}
-.panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:15px;overflow-x:auto}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;overflow:auto}
 .info{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:13px;margin-bottom:14px}
-table{width:100%;min-width:1050px;table-layout:fixed;border-collapse:separate;border-spacing:3px}
-th{background:#263852;color:white;padding:13px 5px;border-radius:6px;font-size:12px}
-th:first-child{width:112px}
-td{height:105px;padding:6px;vertical-align:top;background:var(--cell);border:1px solid var(--border);border-radius:6px}
-td.week{background:#263852;color:#c4d3e8;text-align:center;vertical-align:middle;font-weight:700;font-size:12px}
-td.empty{background:#101a2b;border-color:#1c2a3e}
-td.day.today{border:2px solid var(--purple);background:#302451}
-.day-number{font-weight:700;color:#a9c9ff;margin-bottom:7px}
-.event{display:block;background:var(--green);color:#d7fff0;padding:5px;margin-top:4px;border-radius:4px;font-size:11px;overflow-wrap:anywhere}
+table{border-collapse:separate;border-spacing:2px;table-layout:fixed;min-width:1850px;width:100%}
+th{position:sticky;top:0;z-index:2;background:#263852;color:white;padding:11px 4px;border-radius:5px;font-size:11px;white-space:nowrap}
+th:first-child{left:0;z-index:4;width:125px}
+td{height:66px;padding:3px;background:var(--cell);border:1px solid var(--border);border-radius:5px;vertical-align:top}
+td.date{position:sticky;left:0;z-index:1;width:125px;background:#263852;color:#dce8f8;font-weight:700;vertical-align:middle;text-align:center;font-size:12px}
+td.hour{min-width:68px}
+td.today{border-top:2px solid var(--purple);border-bottom:2px solid var(--purple)}
+td.empty-month{background:#101a2b}
+.event{height:100%;min-height:55px;background:var(--green);color:var(--greenText);border-radius:4px;padding:5px 6px;font-size:10px;line-height:1.3;overflow:hidden;overflow-wrap:anywhere;display:flex;flex-direction:column;justify-content:center}
+.event strong{font-size:10px}
+.event small{font-size:9px;opacity:.9}
 .status{margin-top:12px;color:var(--muted);font-size:12px}
 .status.error{color:#ff9aa9}
-@media(max-width:600px){body{padding:12px}.month{font-size:18px;min-width:150px}}
-@media print{
- body{background:white;color:black;padding:0}
- .toolbar{display:none}
- .panel{background:white;border:0}
- th,td.week{background:#263852!important;color:white!important;print-color-adjust:exact}
- .event{print-color-adjust:exact}
-}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:10;align-items:center;justify-content:center;padding:15px}
+.modal-content{width:100%;max-width:470px;background:#19263b;border:1px solid var(--border);border-radius:12px;padding:23px}
+.modal-content h2{margin-top:0}
+label{display:block;color:#c5d2e4;font-size:13px;margin:10px 0 5px}
+input,select,textarea{width:100%;padding:11px;background:#0e192b;border:1px solid var(--border);border-radius:7px;color:white;font:inherit}
+.time-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.hint{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5}
+@media(max-width:600px){body{padding:12px}.month{font-size:18px;min-width:145px}}
+@media print{body{background:white;color:black;padding:0}.toolbar,.modal{display:none!important}.panel{background:white;border:0;padding:0}table{min-width:0;width:100%;border-spacing:1px}th{background:#263852!important;color:white!important;print-color-adjust:exact;font-size:6px;padding:4px 1px}th:first-child,td.date{width:75px}td{height:48px;padding:1px}td.date{background:#263852!important;color:white!important;print-color-adjust:exact;font-size:7px}.event{min-height:0;padding:2px;font-size:6px;print-color-adjust:exact}.event strong{font-size:6px}.event small{font-size:5px}}
 </style>
 </head>
 <body>
 <div class="container">
-  <header>
-    <h1>◈ Agenda Mensal</h1>
-    <p>Visualização mensal por dia da semana — dados carregados do arquivo agenda.csv</p>
-  </header>
-
-  <div class="toolbar">
-    <button class="secondary" id="prev">❮ Anterior</button>
-    <div class="month" id="monthLabel"></div>
-    <button class="secondary" id="next">Próximo ❯</button>
-    <button class="primary" id="today">Hoje</button>
-    <button class="primary" id="reload">↻ Recarregar CSV</button>
-    <button class="secondary" id="print">▣ Imprimir</button>
+<header>
+  <h1>◈ Agenda Mensal por Intervalos</h1>
+  <p>Cadastre eventos com hora de início e término — a grade destaca todo o período ocupado.</p>
+</header>
+<div class="toolbar">
+  <button class="secondary" id="prev">❮ Mês anterior</button>
+  <div class="month" id="monthLabel"></div>
+  <button class="secondary" id="next">Próximo mês ❯</button>
+  <button class="primary" id="current">Mês atual</button>
+  <button class="primary" id="reload">↻ Recarregar CSV</button>
+  <button class="secondary" id="print">▣ Imprimir</button>
+</div>
+<section class="panel">
+  <div class="info">
+    <span>● Verde: período ocupado</span>
+    <span>Exemplo: início 01:00 e término 07:00 ocupa 01–02 até 06–07</span>
+    <span id="count">0 eventos</span>
   </div>
+  <div id="grid"></div>
+  <div id="status" class="status" role="status">Carregando agenda.csv...</div>
+</section>
+</div>
 
-  <section class="panel">
-    <div class="info">
-      <span>● Roxo: dia atual</span>
-      <span>● Verde: compromisso importado</span>
-      <span id="count">0 eventos</span>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2>Novo evento</h2>
+    <p id="selectedDate" class="hint"></p>
+    <label for="activity">Atividade</label>
+    <input id="activity" placeholder="Ex.: Reunião, plantão, compromisso">
+    <div class="time-row">
+      <div><label for="start">Hora inicial</label><select id="start"></select></div>
+      <div><label for="end">Hora final</label><select id="end"></select></div>
     </div>
-    <table>
-      <thead><tr>
-        <th>SEMANA</th>
-        <th>SEGUNDA</th><th>TERÇA</th><th>QUARTA</th>
-        <th>QUINTA</th><th>SEXTA</th><th>SÁBADO</th><th>DOMINGO</th>
-      </tr></thead>
-      <tbody id="calendar"></tbody>
-    </table>
-    <div id="status" class="status" role="status">Carregando agenda.csv...</div>
-  </section>
+    <label for="description">Descrição</label>
+    <textarea id="description" rows="3" placeholder="Detalhes (opcional)"></textarea>
+    <div class="modal-buttons">
+      <button class="primary" id="save">Salvar evento</button>
+      <button class="danger" id="delete" style="display:none">Excluir</button>
+      <button class="secondary" id="cancel">Cancelar</button>
+    </div>
+    <p class="hint">O término é exclusivo. Ex.: 01:00–07:00 ocupa seis intervalos, até 06:59.</p>
+  </div>
 </div>
 
 <script>
 "use strict";
+const monthNames=["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const today=new Date();
+let year=today.getFullYear(),month=today.getMonth();
+let events=[]; // {id,date,start,end,name,description}
+let selectedDate=null,editingId=null;
+const $=id=>document.getElementById(id);
 
-const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-  "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
-const weekDays = ["SEGUNDA","TERÇA","QUARTA","QUINTA","SEXTA","SÁBADO","DOMINGO"];
-const today = new Date();
-let viewYear = today.getFullYear();
-let viewMonth = today.getMonth();
-let events = new Map();
+function setStatus(msg,error=false){$("status").textContent=msg;$("status").classList.toggle("error",error)}
+function dateKey(y,m,d){return `${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 
-const $ = id => document.getElementById(id);
-
-function setStatus(message, isError=false) {
-  $("status").textContent = message;
-  $("status").classList.toggle("error", isError);
+function parseCSV(text){
+ const rows=[];let row=[],field="",quoted=false;
+ for(let i=0;i<text.length;i++){
+  const c=text[i],n=text[i+1];
+  if(c==='"'&&quoted&&n==='"'){field+='"';i++}
+  else if(c==='"')quoted=!quoted;
+  else if(c===';'&&!quoted){row.push(field);field=""}
+  else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&n==='\n')i++;row.push(field);field="";if(row.some(v=>v.trim()))rows.push(row);row=[]}
+  else field+=c;
+ }
+ row.push(field);if(row.some(v=>v.trim()))rows.push(row);return rows;
+}
+function validDate(s){
+ const m=(s||"").trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);if(!m)return false;
+ const d=new Date(+m[1],+m[2]-1,+m[3]);
+ return d.getFullYear()===+m[1]&&d.getMonth()===+m[2]-1&&d.getDate()===+m[3];
+}
+function toHour(s){
+ const m=(s||"").trim().match(/^(\d{1,2})(?::00)?$/);
+ if(!m)return null;const n=Number(m[1]);return n>=0&&n<=24?n:null;
+}
+async function loadCSV(){
+ setStatus("Lendo agenda.csv...");
+ try{
+  const res=await fetch("./agenda.csv?ts="+Date.now(),{cache:"no-store"});
+  if(!res.ok)throw new Error("Não foi possível acessar agenda.csv (HTTP "+res.status+").");
+  const rows=parseCSV((await res.text()).replace(/^\uFEFF/,""));
+  if(!rows.length)throw new Error("O arquivo agenda.csv está vazio.");
+  const h=rows.shift().map(x=>x.trim().toLowerCase());
+  const di=h.indexOf("data"),si=h.indexOf("inicio"),ei=h.indexOf("fim"),ai=h.indexOf("atividade"),xi=h.indexOf("descricao");
+  if([di,si,ei,ai].some(i=>i<0))throw new Error("Cabeçalho esperado: data;inicio;fim;atividade;descricao");
+  const loaded=[];let ignored=0;
+  rows.forEach((r,index)=>{
+   const date=(r[di]||"").trim(),start=toHour(r[si]),end=toHour(r[ei]),name=(r[ai]||"").trim(),description=xi>=0?(r[xi]||"").trim():"";
+   if(!validDate(date)||start===null||end===null||end<=start||end>24||!name){ignored++;return}
+   loaded.push({id:"csv-"+index,date,start,end,name,description});
+  });
+  events=loaded;render();
+  setStatus(`CSV atualizado: ${events.length} evento(s) carregado(s).`+(ignored?` ${ignored} linha(s) inválida(s) ignorada(s).`:""));
+ }catch(e){setStatus(e.message+" Use iniciar.bat e mantenha agenda.csv na mesma pasta.",true)}
 }
 
-// Parser CSV com suporte a campos entre aspas e delimitador ;.
-function parseCSV(text) {
-  const rows = [];
-  let row = [], field = "", quoted = false;
-  for (let i=0; i<text.length; i++) {
-    const c = text[i], next = text[i+1];
-    if (c === '"' && quoted && next === '"') { field += '"'; i++; }
-    else if (c === '"') { quoted = !quoted; }
-    else if (c === ';' && !quoted) { row.push(field); field = ""; }
-    else if ((c === '\n' || c === '\r') && !quoted) {
-      if (c === '\r' && next === '\n') i++;
-      row.push(field); field = "";
-      if (row.some(v => v.trim() !== "")) rows.push(row);
-      row = [];
-    } else { field += c; }
+function render(){
+ $("monthLabel").textContent=monthNames[month]+" / "+year;
+ const days=new Date(year,month+1,0).getDate();
+ let html='<table><thead><tr><th>DATA</th>';
+ for(let h=0;h<24;h++)html+=`<th>${String(h).padStart(2,"0")}–${String((h+1)%24).padStart(2,"0")}</th>`;
+ html+='</tr></thead><tbody>';
+ let count=0;
+ for(let d=1;d<=days;d++){
+  const date=dateKey(year,month,d);
+  const weekday=new Intl.DateTimeFormat("pt-BR",{weekday:"short"}).format(new Date(year,month,d));
+  const dayEvents=events.filter(e=>e.date===date);
+  count+=dayEvents.length;
+  html+=`<tr><td class="date">${String(d).padStart(2,"0")}/${String(month+1).padStart(2,"0")}/${year}<br>${weekday}</td>`;
+  for(let h=0;h<24;h++){
+   const covering=dayEvents.filter(e=>h>=e.start&&h<e.end);
+   const isToday=year===today.getFullYear()&&month===today.getMonth()&&d===today.getDate();
+   html+=`<td class="hour${isToday?" today":""}">`;
+   covering.forEach(e=>{
+    // Exibe o nome apenas no início do bloco; faixa contínua nas demais horas.
+    if(h===e.start)html+=`<div class="event" style="height:100%"><strong>${escapeHTML(e.name)}</strong><small>${String(e.start).padStart(2,"0")}:00–${String(e.end).padStart(2,"0")}:00</small></div>`;
+    else html+='<div class="event" aria-label="Continuação do evento"></div>';
+   });
+   html+='</td>';
   }
-  row.push(field);
-  if (row.some(v => v.trim() !== "")) rows.push(row);
-  return rows;
+  html+='</tr>';
+ }
+ html+='</tbody></table>';
+ $("grid").innerHTML=html;
+ $("count").textContent=`${count} evento(s) neste mês`;
 }
-
-function normalizeDate(value) {
-  const s = (value || "").trim();
-  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!m) return null;
-  const y=Number(m[1]), mo=Number(m[2]), d=Number(m[3]);
-  const date = new Date(y, mo-1, d);
-  if (date.getFullYear() !== y || date.getMonth() !== mo-1 || date.getDate() !== d) return null;
-  return `${m[1]}-${m[2]}-${m[3]}`;
+function fillHours(){
+ for(let h=0;h<=24;h++){
+  const label=String(h).padStart(2,"0")+":00";
+  $("start").add(new Option(label,String(h)));
+  $("end").add(new Option(label,String(h)));
+ }
+ $("start").value="1";$("end").value="7";
 }
-
-async function loadCSV() {
-  setStatus("Atualizando dados do arquivo agenda.csv...");
-  try {
-    const response = await fetch("./agenda.csv?ts=" + Date.now(), {cache:"no-store"});
-    if (!response.ok) throw new Error(`Não foi possível acessar agenda.csv (HTTP ${response.status}).`);
-    const text = (await response.text()).replace(/^\uFEFF/, "");
-    const rows = parseCSV(text);
-    if (!rows.length) throw new Error("O arquivo agenda.csv está vazio.");
-
-    const header = rows.shift().map(v => v.trim().toLowerCase());
-    const dateIndex = header.indexOf("data");
-    const activityIndex = header.indexOf("atividade");
-    const descriptionIndex = header.indexOf("descricao");
-
-    if (dateIndex < 0 || activityIndex < 0) {
-      throw new Error("Cabeçalho inválido. Use: data;atividade;descricao");
-    }
-
-    const imported = new Map();
-    let ignored = 0;
-
-    for (const row of rows) {
-      const date = normalizeDate(row[dateIndex] || "");
-      const name = (row[activityIndex] || "").trim();
-      const description = descriptionIndex >= 0 ? (row[descriptionIndex] || "").trim() : "";
-      if (!date || !name) { ignored++; continue; }
-      if (!imported.has(date)) imported.set(date, []);
-      imported.get(date).push({name, description});
-    }
-
-    events = imported;
-    renderCalendar();
-    const total = [...events.values()].reduce((sum, list) => sum + list.length, 0);
-    setStatus(`Arquivo atualizado. ${total} evento(s) carregado(s).` +
-      (ignored ? ` ${ignored} linha(s) ignorada(s) por falta de data ou atividade válida.` : ""));
-  } catch (error) {
-    setStatus(error.message + " Confira se o site foi aberto pelo iniciar.bat e se o CSV está na mesma pasta.", true);
-  }
+function openModal(date){
+ selectedDate=date;editingId=null;
+ $("selectedDate").textContent="Data: "+date.split("-").reverse().join("/");
+ $("activity").value="";$("description").value="";
+ $("start").value="1";$("end").value="7";
+ $("delete").style.display="none";
+ $("modal").style.display="flex";
 }
-
-function renderCalendar() {
-  $("monthLabel").textContent = `${monthNames[viewMonth]} / ${viewYear}`;
-  const body = $("calendar");
-  body.innerHTML = "";
-
-  const first = new Date(viewYear, viewMonth, 1);
-  const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
-  const offset = (first.getDay()+6)%7;
-  const weeks = Math.ceil((offset+daysInMonth)/7);
-  let monthCount = 0;
-
-  for (let week=0; week<weeks; week++) {
-    const tr = document.createElement("tr");
-    const weekCell = document.createElement("td");
-    weekCell.className = "week";
-    weekCell.textContent = `SEMANA ${week+1}`;
-    tr.appendChild(weekCell);
-
-    for (let weekday=0; weekday<7; weekday++) {
-      const day = week*7+weekday-offset+1;
-      const td = document.createElement("td");
-
-      if (day < 1 || day > daysInMonth) {
-        td.className = "empty";
-      } else {
-        td.className = "day";
-        const key = `${viewYear}-${String(viewMonth+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
-        if (viewYear===today.getFullYear() && viewMonth===today.getMonth() && day===today.getDate()) {
-          td.classList.add("today");
-        }
-
-        const number = document.createElement("div");
-        number.className = "day-number";
-        number.textContent = String(day).padStart(2,"0");
-        td.appendChild(number);
-
-        const dayEvents = events.get(key) || [];
-        dayEvents.forEach(event => {
-          const item = document.createElement("span");
-          item.className = "event";
-          item.textContent = event.name;
-          if (event.description) item.title = event.description;
-          td.appendChild(item);
-        });
-        monthCount += dayEvents.length;
-      }
-      tr.appendChild(td);
-    }
-    body.appendChild(tr);
-  }
-  $("count").textContent = `${monthCount} evento(s) neste mês`;
+function saveEvent(){
+ const name=$("activity").value.trim(),start=Number($("start").value),end=Number($("end").value);
+ if(!name){alert("Informe o nome da atividade.");return}
+ if(end<=start){alert("A hora final deve ser posterior à hora inicial.");return}
+ events.push({id:"new-"+Date.now(),date:selectedDate,start,end,name,description:$("description").value.trim()});
+ setStatus("Evento incluído na visualização. Para torná-lo permanente, atualize também o agenda.csv.");
+ render();closeModal();
 }
-
-$("prev").addEventListener("click", () => {
-  viewMonth--;
-  if (viewMonth < 0) { viewMonth=11; viewYear--; }
-  renderCalendar();
-});
-$("next").addEventListener("click", () => {
-  viewMonth++;
-  if (viewMonth > 11) { viewMonth=0; viewYear++; }
-  renderCalendar();
-});
-$("today").addEventListener("click", () => {
-  viewYear=today.getFullYear(); viewMonth=today.getMonth(); renderCalendar();
-});
-$("reload").addEventListener("click", loadCSV);
-$("print").addEventListener("click", () => window.print());
-
+function closeModal(){$("modal").style.display="none"}
+$("prev").onclick=()=>{month--;if(month<0){month=11;year--}render()};
+$("next").onclick=()=>{month++;if(month>11){month=0;year++}render()};
+$("current").onclick=()=>{year=today.getFullYear();month=today.getMonth();render()};
+$("reload").onclick=loadCSV;
+$("print").onclick=()=>window.print();
+$("save").onclick=saveEvent;
+$("cancel").onclick=closeModal;
+$("delete").onclick=()=>{closeModal()};
+fillHours();
 loadCSV();
 </script>
 </body>

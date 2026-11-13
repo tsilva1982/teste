@@ -1,5 +1,5 @@
-data;atividade;descricao
-2026-11-13;Reunião de equipe;Reunião semanal
-2026-11-14;Visita ao sítio;Atividade no Sítio Caraúbas
-2026-11-17;Planejamento;Planejamento da semana
-2026-11-20;Compromisso externo;Atividade externa
+data;inicio;fim;atividade;descricao
+2026-11-13;01;07;Exemplo de intervalo;Evento de 01:00 até 07:00
+2026-11-13;09;10;Reunião;Reunião de uma hora
+2026-11-14;14;18;Visita;Compromisso de quatro horas
+2026-11-17;08;12;Planejamento;Planejamento da manhã
