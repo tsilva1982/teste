@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<title>Prestação de Contas | Painel Pessoal</title>
+<style>
+:root{
+  --bg:#0b1220;--panel:#151f30;--panel2:#1b293d;--line:#2a3a50;
+  --text:#edf2f7;--muted:#9aa9bd;--accent:#38bdf8;--green:#34d399;
+  --red:#fb7185;--gold:#fbbf24;--radius:18px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 10% 0%,#172b43 0,transparent 35%),var(--bg);color:var(--text);font:15px/1.5 Inter,Segoe UI,Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.wrap{max-width:1180px;margin:auto;padding:28px 20px 50px}
+header{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0ea5e9,#2563eb);display:grid;place-items:center;font-size:23px;box-shadow:0 8px 25px #0284c744}
+h1{font-size:clamp(22px,4vw,30px);margin:0;letter-spacing:-.6px}
+.sub{color:var(--muted);margin:3px 0 0;font-size:13px}
+.header-actions{display:flex;gap:9px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 14px;border-radius:11px;font-weight:650;transition:.2s}
+.btn:hover{filter:brightness(1.18);transform:translateY(-1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#062033}
+.btn.danger{color:#fecdd3;border-color:#7f3446;background:#3a1c2a}
+.hero{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:24px 0 16px}
+.hero h2{margin:0;font-size:20px}.hero p{margin:4px 0 0;color:var(--muted)}
+.period{background:var(--panel);border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card,.section{background:linear-gradient(145deg,#172337,#121c2b);border:1px solid var(--line);border-radius:var(--radius);padding:19px}
+.metric-label{color:var(--muted);font-size:13px}.metric{font-size:clamp(23px,3vw,30px);font-weight:750;margin:8px 0 2px;letter-spacing:-.6px}
+.metric.income{color:var(--green)}.metric.expense{color:var(--red)}.metric.balance{color:var(--accent)}
+.metric-note{font-size:12px;color:var(--muted)}
+.content{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;margin-top:16px}
+.section h3{margin:0 0 15px;font-size:17px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}
+.section-head h3{margin:0}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th{text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.7px;font-weight:650;padding:10px;border-bottom:1px solid var(--line)}
+td{padding:12px 10px;border-bottom:1px solid #26354a;font-size:13px}
+tbody tr:last-child td{border-bottom:0}
+.amount.in{color:var(--green);font-weight:700}.amount.out{color:var(--red);font-weight:700}
+.tag{display:inline-block;padding:4px 8px;border-radius:20px;background:#26374d;color:#c4d4e8;font-size:11px}
+.empty{text-align:center;color:var(--muted);padding:28px 10px}
+.bar-row{margin:14px 0}.bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px}
+.track{height:8px;background:#26364b;border-radius:10px;overflow:hidden}.fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#0ea5e9,#34d399)}
+.note{color:var(--muted);font-size:12px;margin-top:18px}
+footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#d1fae5;color:#064e3b;padding:11px 17px;border-radius:10px;font-weight:650;box-shadow:0 8px 30px #0006;display:none}
+@media(max-width:800px){.content{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}header{align-items:flex-start;flex-direction:column}.header-actions{width:100%}.header-actions .btn{flex:1}}
+@media(max-width:480px){.wrap{padding:20px 13px 35px}.card,.section{padding:15px}.btn{padding:10px 11px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="logo">▤</div>
+    <div><h1>Prestação de Contas</h1><p class="sub">Consulta e visualização de movimentações financeiras</p></div>
+  </div>
+  <div class="header-actions">
+    <button class="btn primary" id="refreshBtn">↻ Atualizar dados</button>
+    <button class="btn" id="exportBtn">↓ Exportar CSV</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div><h2>Visão geral</h2><p>Acompanhe receitas, despesas e saldo em um só lugar.</p></div>
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><label for="monthFilter">Período:</label><input class="period" type="month" id="monthFilter" aria-label="Filtrar por mês"><button class="btn" type="button" id="allPeriodsBtn">Todos</button></div>
+</div>
+<div id="sourceStatus" class="note" role="status" style="margin:0 0 14px">Conectando ao arquivo CSV do GitHub...</div>
+
+<div class="cards">
+  <div class="card"><div class="metric-label">Total de receitas</div><div class="metric income" id="incomeTotal">R$ 0,00</div><div class="metric-note">Entradas no período selecionado</div></div>
+  <div class="card"><div class="metric-label">Total de despesas</div><div class="metric expense" id="expenseTotal">R$ 0,00</div><div class="metric-note">Saídas no período selecionado</div></div>
+  <div class="card"><div class="metric-label">Saldo do período</div><div class="metric balance" id="balanceTotal">R$ 0,00</div><div class="metric-note">Receitas menos despesas</div></div>
+</div>
+
+<div class="content" style="grid-template-columns:1fr">
+  <section class="section">
+    <h3>Resumo das despesas</h3>
+    <div id="categorySummary"><div class="empty">Nenhuma despesa neste período.</div></div>
+    <div style="border-top:1px solid var(--line);margin-top:18px;padding-top:16px">
+      <div class="metric-label">Quantidade de lançamentos</div>
+      <div class="metric" style="font-size:25px" id="entryCount">0</div>
+      <div class="metric-note">No período selecionado</div>
+    </div>
+  </section>
+</div>
+
+<section class="section" style="margin-top:16px">
+  <div class="section-head"><h3>Histórico de movimentações</h3><span class="tag" id="historyLabel">Todos os lançamentos</span></div>
+  <div class="table-wrap">
+    <table><thead><tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Tipo</th><th>Valor</th></tr></thead>
+    <tbody id="entriesBody"><tr><td colspan="5" class="empty">Nenhum lançamento carregado.</td></tr></tbody></table>
+  </div>
+</section>
+<footer>Prestação de Contas • Painel de consulta • Fonte: arquivo CSV no GitHub</footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const money = value => new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(value);
+const today = new Date();
+$('monthFilter').value = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+let entries = [];
+const CSV_URL = 'https://raw.githubusercontent.com/tsilva1982/teste/main/prestacao_contas/lancamentos.csv';
+let lastSuccessfulLoad = null;
+
+function setSourceStatus(message, isError=false) {
+ const el = $('sourceStatus');
+ el.textContent = message;
+ el.style.color = isError ? 'var(--red)' : 'var(--muted)';
+}
+function selected(){const m=$('monthFilter').value;return entries.filter(e=>!m||e.date.startsWith(m)).sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id);}
+function render(){
+ const list=selected(), income=list.filter(e=>e.type==='income').reduce((s,e)=>s+e.amount,0), expense=list.filter(e=>e.type==='expense').reduce((s,e)=>s+e.amount,0);
+ $('incomeTotal').textContent=money(income);$('expenseTotal').textContent=money(expense);$('balanceTotal').textContent=money(income-expense);$('entryCount').textContent=list.length;
+ $('historyLabel').textContent=$('monthFilter').value?$('monthFilter').value.split('-').reverse().join('/'):'Todos os períodos';
+ $('entriesBody').innerHTML=list.length?list.map(e=>`<tr><td>${e.date.split('-').reverse().join('/')}</td><td>${escapeHtml(e.description)}</td><td><span class="tag">${escapeHtml(e.category)}</span></td><td>${e.type==='income'?'Receita':'Despesa'}</td><td class="amount ${e.type==='income'?'in':'out'}">${e.type==='income'?'+':'−'} ${money(e.amount)}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">Nenhum lançamento cadastrado neste período.</td></tr>';
+ const cats={};list.filter(e=>e.type==='expense').forEach(e=>cats[e.category]=(cats[e.category]||0)+e.amount);
+ const values=Object.entries(cats).sort((a,b)=>b[1]-a[1]), max=Math.max(1,...values.map(x=>x[1]));
+ $('categorySummary').innerHTML=values.length?values.map(([name,val])=>`<div class="bar-row"><div class="bar-label"><span>${escapeHtml(name)}</span><strong>${money(val)}</strong></div><div class="track"><div class="fill" style="width:${val/max*100}%"></div></div></div>`).join(''):'<div class="empty">Nenhuma despesa neste período.</div>';
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function toast(msg){const el=$('toast');el.textContent=msg;el.style.display='block';setTimeout(()=>el.style.display='none',2400);}
+$('monthFilter').addEventListener('change',render);
+$('exportBtn').addEventListener('click',()=>{
+ const rows=[['Data','Descrição','Categoria','Tipo','Valor'],...selected().map(e=>[e.date,e.description,e.category,e.type==='income'?'Receita':'Despesa',e.amount.toFixed(2).replace('.',',')])];
+ const csv='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='prestacao-de-contas.csv';a.click();URL.revokeObjectURL(url);toast('Arquivo CSV exportado!');
+});
+
+// Leitor CSV compatível com campos entre aspas e separadores ; , ou tabulação.
+function parseCSV(text){
+ const firstLine=(text.replace(/^\uFEFF/,'').split(/\r?\n/).find(line=>line.trim())||'');
+ const separators=[';',',','\t'];
+ const delimiter=separators.sort((a,b)=>firstLine.split(b).length-firstLine.split(a).length)[0];
+ const rows=[];let row=[],field='',quoted=false;
+ text=text.replace(/^\uFEFF/,'');
+ for(let i=0;i<text.length;i++){
+   const ch=text[i],next=text[i+1];
+   if(ch==='"'&&quoted&&next==='"'){field+='"';i++;}
+   else if(ch==='"'){quoted=!quoted;}
+   else if(ch===delimiter&&!quoted){row.push(field);field='';}
+   else if((ch==='\n'||ch==='\r')&&!quoted){
+     if(ch==='\r'&&next==='\n')i++;
+     row.push(field);if(row.some(v=>String(v).trim()!==''))rows.push(row);
+     row=[];field='';
+   }else field+=ch;
+ }
+ row.push(field);if(row.some(v=>String(v).trim()!==''))rows.push(row);
+ if(rows.length<2)return [];
+ const headers=rows.shift().map(h=>normalizeHeader(h));
+ return rows.map(values=>Object.fromEntries(headers.map((h,i)=>[h,(values[i]??'').trim()])));
+}
+function normalizeHeader(value){return String(value??'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function parseDate(value){
+ const s=String(value??'').trim();let m=s.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})$/);
+ if(m)return `${m[3]}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
+ if(/^\d{4}-\d{2}-\d{2}$/.test(s))return s;
+ return '';
+}
+function parseAmount(value){
+ if(typeof value==='number')return value;
+ let s=String(value??'').trim().replace(/R\$/gi,'').replace(/\s/g,'');
+ if(!s)return NaN;
+ if(s.includes(','))s=s.replace(/\./g,'').replace(',','.');
+ const n=Number(s);return Number.isFinite(n)?n:NaN;
+}
+async function loadRemoteCSV(){
+ const button=$('refreshBtn');
+ button.disabled=true;
+ button.textContent='Carregando...';
+ setSourceStatus('Buscando os lançamentos no GitHub...');
+ try{
+   const response=await fetch(`${CSV_URL}?t=${Date.now()}`,{cache:'no-store'});
+   if(!response.ok) throw new Error(`GitHub respondeu com status ${response.status}. Confira se o arquivo lancamentos.csv existe nesse diretório e se o repositório é público.`);
+   const csvText=await response.text();
+   const rows=parseCSV(csvText);
+   if(!rows.length) throw new Error('O CSV está vazio ou não contém cabeçalho e linhas de dados.');
+   const parsed=[],errors=[];
+   rows.forEach((row,index)=>{
+     const desc=String(row.descricao||row.historico||row.lancamento||'').trim();
+     const category=String(row.categoria||row.grupo||'Geral').trim()||'Geral';
+     const typeRaw=normalizeHeader(row.tipo||row.natureza||'');
+     const date=parseDate(row.data||row.date||'');
+     const amount=parseAmount(row.valor||row.value||row.total||'');
+     let type='';
+     if(['receita','entrada','income'].includes(typeRaw))type='income';
+     if(['despesa','saida','out','expense'].includes(typeRaw))type='expense';
+     if(!desc||!date||!Number.isFinite(amount)||amount<=0||!type){errors.push(index+2);return;}
+     parsed.push({id:index+1,description:desc,amount,type,category,date});
+   });
+   if(!parsed.length) throw new Error('Nenhuma linha válida. Verifique as colunas Data, Descrição, Categoria, Tipo e Valor.');
+   entries=parsed;
+   if(!lastSuccessfulLoad){
+     const currentMonth=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+     const availableMonths=new Set(parsed.map(e=>e.date.slice(0,7)));
+     const latest=parsed.map(e=>e.date.slice(0,7)).sort().at(-1);
+     $('monthFilter').value=availableMonths.has(currentMonth)?currentMonth:(latest||'');
+   }
+   render();
+   lastSuccessfulLoad=new Date();
+   const timestamp=lastSuccessfulLoad.toLocaleString('pt-BR');
+   setSourceStatus(`Dados atualizados automaticamente do GitHub • ${parsed.length} lançamentos • Última atualização: ${timestamp}${errors.length?` • ${errors.length} linha(s) inválida(s) ignorada(s)`:''}`);
+ }catch(err){
+   setSourceStatus(`Não foi possível carregar o CSV: ${err.message}`,true);
+ }finally{
+   button.disabled=false;
+   button.textContent='↻ Atualizar dados';
+ }
+}
+$('refreshBtn').addEventListener('click',loadRemoteCSV);
+$('allPeriodsBtn').addEventListener('click',()=>{$('monthFilter').value='';render();});
+
+render();
+loadRemoteCSV();
+setInterval(loadRemoteCSV,5*60*1000);
+</script>
+</body>
+</html>
