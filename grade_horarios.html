@@ -4,154 +4,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grade Semanal de Horários</title>
+<title>Agenda Semanal</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
+:root {
+    --bg: #0b1120;
+    --panel: #151f32;
+    --panel2: #1d2a40;
+    --border: #30415b;
+    --text: #e7edf7;
+    --muted: #91a1b8;
+    --blue: #2563eb;
+    --green: #16a36a;
+    --red: #dc4c64;
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        background: #f4f6f9;
-        color: #333;
-    }
+* { box-sizing: border-box; }
 
-    h1 {
-        text-align: center;
-        color: #24364b;
-    }
+body {
+    margin: 0;
+    padding: 25px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
 
-    .container {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px #00000012;
-        overflow-x: auto;
-    }
+header {
+    margin-bottom: 25px;
+}
 
-    .actions {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 15px;
-    }
+header h1 {
+    margin: 0;
+    font-size: 27px;
+    color: #ffffff;
+}
 
-    button {
-        padding: 10px 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        background: #245b91;
-        color: white;
-    }
+header p {
+    color: var(--muted);
+    margin-top: 7px;
+}
 
-    button:hover {
-        background: #173e65;
-    }
+.container {
+    max-width: 1600px;
+    margin: auto;
+}
 
-    table {
-        width: 100%;
-        min-width: 900px;
-        border-collapse: collapse;
-        table-layout: fixed;
-    }
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-    th, td {
-        border: 1px solid #dce2e8;
-        text-align: center;
-        padding: 8px;
-    }
+button {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 17px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
 
-    th {
-        background: #24364b;
-        color: white;
-        position: sticky;
-        top: 0;
-    }
+button:hover {
+    filter: brightness(1.2);
+    transform: translateY(-1px);
+}
 
-    th:first-child {
-        width: 85px;
-    }
+.primary { background: var(--blue); }
+.success { background: var(--green); }
+.danger { background: var(--red); }
+.secondary { background: #34445e; }
 
-    .hora {
-        background: #edf1f5;
-        font-weight: bold;
-        color: #34495e;
-    }
+.panel {
+    background: var(--panel);
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow-x: auto;
+}
 
-    td:not(.hora) {
-        height: 42px;
-        cursor: pointer;
-        background: white;
-        font-size: 12px;
-    }
+.info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: var(--muted);
+    font-size: 13px;
+}
 
-    td:not(.hora):hover {
-        background: #e8f2fc;
-    }
+table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: separate;
+    border-spacing: 3px;
+    table-layout: fixed;
+}
 
-    td.preenchido {
-        background: #d8eafa;
-        color: #17466e;
-        font-weight: bold;
-    }
+th {
+    background: #243550;
+    color: #fff;
+    padding: 14px 5px;
+    border-radius: 6px;
+    font-size: 13px;
+}
 
-    @media print {
-        body {
-            margin: 5px;
-            background: white;
-        }
+th:first-child {
+    width: 85px;
+}
 
-        .actions {
-            display: none;
-        }
+td {
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    text-align: center;
+    height: 43px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 11px;
+}
 
-        .container {
-            box-shadow: none;
-            padding: 0;
-        }
+td.hora {
+    background: #26354d;
+    color: #aebed3;
+    font-weight: bold;
+}
 
-        table {
-            min-width: 100%;
-        }
+td.celula {
+    cursor: pointer;
+    transition: .2s;
+    color: #dce9fa;
+}
 
-        td, th {
-            padding: 5px;
-            font-size: 9px;
-        }
-    }
+td.celula:hover {
+    background: #304b70;
+    border-color: #60a5fa;
+}
+
+td.preenchido {
+    background: #164c46;
+    border-color: #238b70;
+    color: #c3fff0;
+    font-weight: 600;
+}
+
+td.preenchido:hover {
+    background: #20665c;
+}
+
+.footer {
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: right;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000b;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    z-index: 10;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 420px;
+    background: #19263b;
+    border: 1px solid var(--border);
+    padding: 24px;
+    border-radius: 13px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    background: #0e192b;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    color: white;
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 75px;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+@media(max-width:600px) {
+    body { padding: 12px; }
+    header h1 { font-size: 22px; }
+    .panel { padding: 8px; }
+}
+
+@media print {
+    body { background: white; color: black; padding: 0; }
+    .toolbar, .footer, .modal { display: none !important; }
+    .panel { background: white; border: 0; }
+    th { background: #243550 !important; print-color-adjust: exact; }
+    td { color: black; }
+    td.hora { background: #ddd !important; }
+    td.preenchido { background: #d0e8df !important; print-color-adjust: exact; }
+}
 </style>
 </head>
 
 <body>
 
-<h1>GRADE SEMANAL DE HORÁRIOS</h1>
-
 <div class="container">
 
-    <div class="actions">
-        <button onclick="window.print()">Imprimir grade</button>
-        <button onclick="limparGrade()">Limpar grade</button>
+<header>
+    <h1>◈ Agenda Semanal</h1>
+    <p>Gerenciamento de horários e atividades da semana</p>
+</header>
+
+<div class="toolbar">
+    <button class="primary" onclick="novoCompromisso()">
+        ＋ Novo compromisso
+    </button>
+
+    <button class="success" onclick="window.print()">
+        ▣ Imprimir
+    </button>
+
+    <button class="secondary" onclick="exportar()">
+        ↓ Exportar dados
+    </button>
+
+    <button class="danger" onclick="limparGrade()">
+        ✕ Limpar agenda
+    </button>
+</div>
+
+<div class="panel">
+
+    <div class="info">
+        <span>● Verde: horário ocupado</span>
+        <span id="contador">0 compromissos cadastrados</span>
     </div>
 
     <table id="grade">
         <thead>
             <tr>
-                <th>Horário</th>
-                <th>Segunda</th>
-                <th>Terça</th>
-                <th>Quarta</th>
-                <th>Quinta</th>
-                <th>Sexta</th>
-                <th>Sábado</th>
-                <th>Domingo</th>
+                <th>HORÁRIO</th>
+                <th>SEGUNDA</th>
+                <th>TERÇA</th>
+                <th>QUARTA</th>
+                <th>QUINTA</th>
+                <th>SEXTA</th>
+                <th>SÁBADO</th>
+                <th>DOMINGO</th>
             </tr>
         </thead>
-
         <tbody id="corpoGrade"></tbody>
     </table>
 
+    <div class="footer">
+        Clique em qualquer horário para cadastrar ou editar.
+    </div>
+
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h2 id="tituloModal">Novo compromisso</h2>
+
+        <label>Atividade</label>
+        <input id="atividade" placeholder="Ex: Reunião, trabalho...">
+
+        <label>Descrição</label>
+        <textarea id="descricao" placeholder="Detalhes do compromisso"></textarea>
+
+        <div class="modal-buttons">
+            <button class="primary" onclick="salvar()">Salvar</button>
+            <button class="danger" onclick="excluir()">Excluir</button>
+            <button class="secondary" onclick="fechar()">Cancelar</button>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -161,97 +307,144 @@ const dias = [
     "Quinta", "Sexta", "Sábado", "Domingo"
 ];
 
+let dados = JSON.parse(localStorage.getItem("agendaSemanal") || "{}");
+let selecionado = null;
+
 const corpo = document.getElementById("corpoGrade");
 
-// Criar os 24 intervalos de horários
-for (let hora = 0; hora < 24; hora++) {
+for (let h = 0; h < 24; h++) {
 
-    let inicio = String(hora).padStart(2, "0");
-    let fim = String((hora + 1) % 24).padStart(2, "0");
+    const inicio = String(h).padStart(2,"0");
+    const fim = String(h+1).padStart(2,"0");
 
-    let linha = document.createElement("tr");
+    let tr = document.createElement("tr");
 
-    let colunaHora = document.createElement("td");
-    colunaHora.className = "hora";
-    colunaHora.textContent = `${inicio} - ${fim}`;
+    let hora = document.createElement("td");
+    hora.className = "hora";
+    hora.textContent = inicio + " - " + fim;
+    tr.appendChild(hora);
 
-    linha.appendChild(colunaHora);
+    dias.forEach((dia,d) => {
 
-    dias.forEach((dia, indice) => {
+        let td = document.createElement("td");
+        td.className = "celula";
+        td.dataset.id = h + "-" + d;
 
-        let celula = document.createElement("td");
+        td.onclick = () => abrir(td.dataset.id);
 
-        celula.dataset.id = `${hora}-${indice}`;
-
-        celula.addEventListener("click", function() {
-
-            let atual = this.textContent;
-
-            let atividade = prompt(
-                `Horário: ${inicio} - ${fim}\nDia: ${dia}\n\nDigite a atividade:`,
-                atual
-            );
-
-            if (atividade === null) return;
-
-            this.textContent = atividade;
-            this.classList.toggle("preenchido", atividade.trim() !== "");
-
-            salvarGrade();
-
-        });
-
-        linha.appendChild(celula);
+        tr.appendChild(td);
 
     });
 
-    corpo.appendChild(linha);
+    corpo.appendChild(tr);
 }
 
-// Salvar dados no navegador
-function salvarGrade() {
+function abrir(id) {
 
-    let dados = {};
+    selecionado = id;
 
-    document.querySelectorAll("#grade td[data-id]").forEach(celula => {
-        dados[celula.dataset.id] = celula.textContent;
+    let item = dados[id] || {};
+
+    document.getElementById("atividade").value = item.nome || "";
+    document.getElementById("descricao").value = item.descricao || "";
+
+    document.getElementById("tituloModal").textContent =
+        "Editar compromisso";
+
+    document.getElementById("modal").style.display = "flex";
+}
+
+function novoCompromisso() {
+    abrir("8-0");
+    document.getElementById("atividade").value = "";
+    document.getElementById("descricao").value = "";
+    document.getElementById("tituloModal").textContent =
+        "Novo compromisso (inicialmente segunda-feira, 08h)";
+}
+
+function salvar() {
+
+    let nome = document.getElementById("atividade").value.trim();
+    let descricao = document.getElementById("descricao").value.trim();
+
+    if (!nome) {
+        alert("Informe o nome da atividade.");
+        return;
+    }
+
+    dados[selecionado] = {nome, descricao};
+
+    persistir();
+    fechar();
+}
+
+function excluir() {
+
+    if (!selecionado || !dados[selecionado]) {
+        fechar();
+        return;
+    }
+
+    if (!confirm("Deseja excluir este compromisso?")) return;
+
+    delete dados[selecionado];
+
+    persistir();
+    fechar();
+}
+
+function fechar() {
+    document.getElementById("modal").style.display = "none";
+}
+
+function persistir() {
+
+    localStorage.setItem("agendaSemanal", JSON.stringify(dados));
+    atualizar();
+}
+
+function atualizar() {
+
+    document.querySelectorAll(".celula").forEach(td => {
+
+        let item = dados[td.dataset.id];
+
+        td.textContent = item ? item.nome : "";
+        td.classList.toggle("preenchido", !!item);
+
+        td.title = item ? item.descricao : "";
+
     });
 
-    localStorage.setItem("gradeSemanal", JSON.stringify(dados));
+    let total = Object.keys(dados).length;
+
+    document.getElementById("contador").textContent =
+        total + (total === 1 ? " compromisso cadastrado" : " compromissos cadastrados");
 }
 
-// Recuperar dados salvos
-function carregarGrade() {
-
-    let dados = JSON.parse(
-        localStorage.getItem("gradeSemanal") || "{}"
-    );
-
-    document.querySelectorAll("#grade td[data-id]").forEach(celula => {
-
-        celula.textContent = dados[celula.dataset.id] || "";
-
-        if (celula.textContent.trim() !== "") {
-            celula.classList.add("preenchido");
-        }
-
-    });
-}
-
-// Limpar grade
 function limparGrade() {
 
-    if (!confirm("Deseja realmente limpar toda a grade?")) return;
+    if (!confirm("Deseja apagar todos os compromissos?")) return;
 
-    document.querySelectorAll("#grade td[data-id]").forEach(celula => {
-        celula.textContent = "";
-        celula.classList.remove("preenchido");
-    });
-
-    localStorage.removeItem("gradeSemanal");
+    dados = {};
+    persistir();
 }
 
-carregarGrade();
+function exportar() {
+
+    let blob = new Blob(
+        [JSON.stringify(dados,null,2)],
+        {type:"application/json"}
+    );
+
+    let link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "agenda-semanal.json";
+    link.click();
+    URL.revokeObjectURL(link.href);
+}
+
+atualizar();
 
 </script>
 
