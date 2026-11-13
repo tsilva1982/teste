@@ -1,6 +1,6 @@
-data;inicio;fim;atividade;descricao
-2026-11-13;00;07;Elieuda;Intervalo único de 00:00 até 07:00
-2026-11-13;19;24;Meirinha;Intervalo único de 19:00 até 24:00
-2026-11-13;09;10;Reunião;Horário individual
-2026-11-14;07;08;Atividade;Horário individual
-2026-11-17;12;13;Almoço;Horário individual
+data;inicio;fim;atividade;descricao;cor
+2026-11-13;00;07;Plantão;Bloco madrugada e manhã;#2563EB
+2026-11-13;19;24;Descanso;Bloco da noite;#8B5CF6
+2026-11-13;09;10;Reunião;Reunião administrativa;#D97706
+2026-11-14;07;08;Atividade pessoal;Compromisso pessoal;#16A34A
+2026-11-17;12;13;Almoço;Intervalo para almoço;#0891B2
