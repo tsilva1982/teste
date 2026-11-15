@@ -493,7 +493,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/08/2026;Compra com Cartão - 22/07 SUPERMERCADO COMETA;Supermercado;Despesa;19,05
 01/08/2026;Compra com Cartão - 22/07 SUPERMERCADO COMETA;Supermercado;Despesa;96,61
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
-01/08/2026;Transferência enviada - 22/07 ASTRID MAIA QUEIROZ;Empregados e Cuidadores;Despesa;650
+01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;650
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/08/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Sucatinga;Despesa;716,73
 01/08/2026;Pix - Enviado - 23/07 THIAGO LEITE DE OLIVEIRA;Empréstimo;Despesa;5000
@@ -572,13 +572,13 @@ Data;Descrição;Categoria;Tipo;Valor
 17/08/2026;Pix - Recebido - 17/08 Thiago Leite d;Empréstimo;Receita;500
 18/08/2026;Compra com Cartão - 18/08 MERCADINHO SAO LUIZ;Supermercado;Despesa;116,09
 19/08/2026;Compra com Cartão - 19/08 DROGASIL 2321;Farmácia;Despesa;44,97
-01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
+01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
 01/09/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;41
-01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;373
-01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;344
-01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
-01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
-01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;373
+01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;344
+01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/09/2026;Pix - Enviado -ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
 01/09/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;999,62
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;810
@@ -759,19 +759,19 @@ Data;Descrição;Categoria;Tipo;Valor
 01/11/2026;TED Transf.Eletr.Disponiv - 104 0926 11966858353 VANDA CUNHA DE OL;Doação;Despesa;200
 01/11/2026;Pix - Agendamento - 23/10 05:39 Ana Maria Leite de Olivei;Doação;Despesa;1900
 01/11/2026;Pix - Agendamento - 23/10 05:39 ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
-01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;650
-01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;500
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;650
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;500
 01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;820
-01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
 01/11/2026;Pix - Enviado - 23/10 10:59 MUNICIPIO DE FORTALEZA;Impostos;Despesa;368,29
 01/11/2026;Transferência Agendada - 20/10 ACYRA F A HOLANDA;Supermercado;Despesa;2000
-01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;260
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;260
 01/11/2026;Compra com Cartão - 24/10 14:21 DROGASIL 2321;Farmácia;Despesa;73,98
 01/11/2026;Compra com Cartão - 24/10 14:29 PAGUE MENOS;Farmácia;Despesa;424,8
 01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2160
-01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
 01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
-01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;40
+01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;40
 01/11/2026;Pix - Enviado - 26/10 12:48 AMAZON COM BR;Manutenção;Despesa;270,1
 01/11/2026;Tarifa Pacote de Serviços - Cobrança referente 26/10/2026;Tarifas;Despesa;120,4
 01/11/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
