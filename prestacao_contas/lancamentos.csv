@@ -112,14 +112,14 @@ Data;Descrição;Categoria;Tipo;Valor
 02/03/2026;Pagamento de Telefone - NIO FIBRA A;Residencial;Despesa;87,09
 02/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 02/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
-02/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;608,21
+02/03/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;608,21
 02/03/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;28,45
 03/03/2026;Compra com Cartão - 03/03 AcopelAmerico;Manutenção;Despesa;139,47
 03/03/2026;Compra com Cartão - 03/03 LAVA JATO CRISTALIZE;Manutenção;Despesa;40
 03/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 03/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
-03/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;123,45
-03/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;196,44
+03/03/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;123,45
+03/03/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;196,44
 03/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;45
 04/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;160
 04/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
@@ -183,10 +183,10 @@ Data;Descrição;Categoria;Tipo;Valor
 01/04/2026;TED Transf.Eletr.Disponiv - VANDA CUNHA DE OL;Doação;Despesa;200
 01/04/2026;Pix - Agendamento - 25/03 JOSEANNE DE OLIVEIRA NERY;Doação;Despesa;1900
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;50
-01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;100,55
+01/04/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;100,55
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;115
-01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;223,94
-01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;296,75
+01/04/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;223,94
+01/04/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;296,75
 01/04/2026;Pix - Agendamento - 25/03 ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
 01/04/2026;Cobrança de Juros - Juros Saldo Devedor Conta;Tarifas;Despesa;225,89
 01/04/2026;Tarifa Pacote de Serviços - Cobrança referente 25/03/2026;Tarifas;Despesa;119
@@ -215,7 +215,7 @@ Data;Descrição;Categoria;Tipo;Valor
 02/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 02/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 06/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
-06/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;255,6
+06/04/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;255,6
 06/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;260
 06/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;260
 06/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
@@ -433,7 +433,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;164
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;320
 01/07/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
-01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;384,27
+01/07/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;384,27
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;500
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;810
@@ -531,7 +531,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/08/2026;Compra com Cartão - 29/07 NORMATEL HOME CENTER;Manutenção;Despesa;59,8
 01/08/2026;Pagamento de Boleto - R. C. DE FREITAS ADMINISTRADORA DE PLA;Residencial;Despesa;166,42
 03/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
-03/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;230,01
+03/08/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;230,01
 03/08/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;29,57
 03/08/2026;Compra com Cartão - 01/08 FREITAS VAREJO;Manutenção;Despesa;42,98
 03/08/2026;Compra com Cartão - 03/08 JCT ESTACIONAMENTOS;Manutenção;Despesa;24
@@ -580,7 +580,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/09/2026;Pix - Enviado -ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
-01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;999,62
+01/09/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;999,62
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;810
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;250
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
@@ -616,7 +616,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/09/2026;BB Seguro Auto - SEGURO AUTO BB/MAPFRE;Manutenção;Despesa;168,22
 01/09/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
 01/09/2026;Pix - Enviado - Geriatra;Empregados e Cuidadores;Despesa;900
-02/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;1001,72
+02/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1001,72
 02/09/2026;Compra com Cartão - 02/09 DROGASIL 2321;Farmácia;Despesa;679,78
 02/09/2026;Pix - Enviado - 02/09 ENEL DISTRIBUICAO CEARA;Sucatinga;Despesa;614,52
 02/09/2026;TED Transf.Eletr.Disponiv - VANDA CUNHA DE OL;Doação;Despesa;200
@@ -680,7 +680,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
-01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;impostos;230,01
+01/10/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;230,01
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;320
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2164
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1703
@@ -742,7 +742,7 @@ Data;Descrição;Categoria;Tipo;Valor
 15/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 15/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
 15/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;811
-15/10/2026;Pagamento Empregados e Cuidadores;Residencial;Despesa;71,48
+15/10/2026;Pagamento Empregados e Cuidadores;Impostos;Despesa;71,48
 19/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 20/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
 01/11/2026;Recebimento de Proventos - 03.235.270/0001-70 TRIBUNAL REGIONAL D;Salario;Receita;36139,82
