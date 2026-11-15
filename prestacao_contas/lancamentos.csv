@@ -1,4 +1,4 @@
-Data;Descrição;Categoria;Tipo;Valor
+﻿Data;Descrição;Categoria;Tipo;Valor
 20/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
 19/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 15/10/2026;Pix - Thiago Leite de Oliveira;Empréstimo;Receita;500
@@ -69,7 +69,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
 01/10/2026;Compra Internet;Residencial;Despesa;199,8
 01/10/2026;Saque;Residencial;Despesa;500
-01/10/2026;Pagamento Boleto Unimed Cartão;Residencial;Despesa;2601,99
+01/10/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;2601,99
 01/10/2026;Plano Móvel - TIM;Residencial;Despesa;95,99
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/10/2026;Cobrança Tarifas e Impostos;Tarifas;Despesa;120,4
@@ -150,7 +150,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1330
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/09/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;3196,6
+01/09/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;3196,6
 01/09/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2676,19
 01/09/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
 01/09/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Residencial;Despesa;563,1
@@ -233,8 +233,8 @@ Data;Descrição;Categoria;Tipo;Valor
 01/08/2026;Pagamento de Boleto - R. C. DE FREITAS ADMINISTRADOR;Residencial;Despesa;166,42
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;50
-01/08/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;2827,19
-01/08/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;3950,33
+01/08/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;2827,19
+01/08/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;3950,33
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;60
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;430
 01/08/2026;Pix - Enviado - JOSEANNE DE OLIVEIRA NERY;Doação;Despesa;1900
@@ -306,9 +306,9 @@ Data;Descrição;Categoria;Tipo;Valor
 01/07/2026;Pix - Agendamento - 23/06 Thiago Leite DE Oliveira;Empréstimo;Despesa;5000
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/07/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Sucatinga;Despesa;581,23
-01/07/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;2420,14
+01/07/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;2420,14
 01/07/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
-01/07/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;3117,3
+01/07/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;3117,3
 01/07/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
 01/07/2026;Tarifa Pacote de Serviços - Cobrança referente 25/06/2026;Tarifas;Despesa;120,4
 01/07/2026;BB Seguro Auto - SEGURO AUTO BB/MAPFRE;Residencial;Despesa;168,22
@@ -393,9 +393,9 @@ Data;Descrição;Categoria;Tipo;Valor
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
 01/06/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
 01/06/2026;Pix Agendado - 23/05 THIAGO LEITE DE OLIVEIRA 005/012;Empréstimo;Despesa;1900
-01/06/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;1958,56
+01/06/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1958,56
 01/06/2026;Pix Agendado - 23/05 THIAGO LEITE DE OLIVEIRA 017/999;Empréstimo;Despesa;2000
-01/06/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;2448,11
+01/06/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;2448,11
 01/06/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/06/2026;TED Transf.Eletr.Disponiv - VANDA CUNHA DE OL;Doação;Despesa;200
@@ -431,8 +431,8 @@ Data;Descrição;Categoria;Tipo;Valor
 01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/05/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Residencial;Despesa;324,21
 01/05/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
-01/05/2026;Pagamento Boleto Unimed Cartão;Residencial;Despesa;1685,89
-01/05/2026;Pagamento Boleto Unimed Cartão;Residencial;Despesa;1858,26
+01/05/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1685,89
+01/05/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1858,26
 01/05/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1477,11
 01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
@@ -507,8 +507,8 @@ Data;Descrição;Categoria;Tipo;Valor
 01/04/2026;Recebimento de Proventos - TRIBUNAL REGIONAL D;Salario;Receita;37231,82
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
 01/04/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Residencial;Despesa;340,15
-01/04/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;1393,39
-01/04/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;1450,98
+01/04/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1393,39
+01/04/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1450,98
 01/04/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1477,11
 01/04/2026;Pagto conta telefone - CLARO S.A.;Residencial;Despesa;195,42
 01/04/2026;Pagto conta telefone - VIVO CE;Residencial;Despesa;155
@@ -594,7 +594,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 01/03/2026;Pix Agendado - 23/02 THIAGO LEITE DE OLIVEIRA 002/012;Doação;Despesa;1900
 01/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;500
-01/03/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;1200
+01/03/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1200
 01/03/2026;Pix - Enviado - 23/02 PREFEITURA MUNICIPAL DE F;Residencial;Despesa;178
 01/03/2026;Recebimento de Proventos - RIBUNAL REGIONAL D;Salario;Receita;37231,82
 01/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;70
@@ -603,7 +603,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;594
 01/03/2026;Pix - Enviado - 25/02 JOSEANNE DE OLIVEIRA NERY;Doação;Despesa;1900
 01/03/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Sucatinga;Despesa;493,03
-01/03/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Residencial;Despesa;3227,24
+01/03/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;3227,24
 01/03/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
 01/03/2026;Transferência enviada - 25/02 ACYRA F A HOLANDA;Supermercado;Despesa;10000
 01/03/2026;Pix - Enviado - 25/02 ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
@@ -676,7 +676,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/02/2026;Pix - Agendamento - 23/01 JOSEANNE DE OLIVEIRA NERY;Doação;Despesa;1900
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
 01/02/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
-01/02/2026;Pagamento Boleto Unimed Cartão;Residencial;Despesa;1700
+01/02/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1700
 01/02/2026;Pix - Agendamento - 23/01 ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
@@ -689,7 +689,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2000
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2000
-01/02/2026;Pagamento Boleto Unimed Cartão;Residencial;Despesa;650,43
+01/02/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;650,43
 01/02/2026;Transferência enviada - 27/01 ACYRA F A HOLANDA;Supermercado;Despesa;12000
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;234
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;300
