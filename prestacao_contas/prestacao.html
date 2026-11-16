@@ -112,7 +112,7 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
     <tbody id="entriesBody"><tr><td colspan="5" class="empty">Nenhum lançamento carregado.</td></tr></tbody></table>
   </div>
 </section>
-<footer>Prestação de Contas • Painel de consulta • Fonte: arquivo privado no Supabase Storage</footer>
+<footer>Prestação de Contas • Painel de consulta • Fonte: arquivo privado no Supabase Storage • Versão 2026.11.16.2</footer>
 </div>
 <div class="toast" id="toast" role="status"></div>
 
@@ -245,23 +245,40 @@ async function loadPrivateCSV(){
    if(fileError){
      throw new Error('Esta conta Google ainda não está autorizada ou o arquivo privado não foi configurado. Solicite a liberação do e-mail ao administrador.');
    }
-   const csvText=await fileData.text();
+   // Decode explicitly: some CSV exports arrive in Windows-1252 instead of UTF-8.
+   const csvBuffer=await fileData.arrayBuffer();
+   let csvText='',csvEncoding='UTF-8';
+   try {
+     csvText=new TextDecoder('utf-8',{fatal:true}).decode(csvBuffer);
+   } catch (_) {
+     csvText=new TextDecoder('windows-1252').decode(csvBuffer);
+     csvEncoding='Windows-1252 (fallback)';
+   }
    const rows=parseCSV(csvText);
    if(!rows.length) throw new Error('O CSV privado está vazio ou não contém cabeçalho e linhas de dados.');
-   const parsed=[],errors=[];
+   const parsed=[],diagnostics={description:0,date:0,amount:0,type:0};
+   const detectedHeaders=Object.keys(rows[0]||{});
    rows.forEach((row,index)=>{
-     const desc=String(row.descricao||row.historico||row.lancamento||'').trim();
-     const category=String(row.categoria||row.grupo||'Geral').trim()||'Geral';
-     const typeRaw=normalizeHeader(row.tipo||row.natureza||'');
-     const date=parseDate(row.data||row.date||'');
-     const amount=parseAmount(row.valor||row.value||row.total||'');
+     const desc=String(row.descricao||row.historico||row.lancamento||row.descricao_lancamento||'').trim();
+     const category=String(row.categoria||row.grupo||row.category||'Geral').trim()||'Geral';
+     const typeRaw=normalizeHeader(row.tipo||row.natureza||row.type||'');
+     const date=parseDate(row.data||row.date||row.data_lancamento||'');
+     const amount=parseAmount(row.valor||row.value||row.total||row.amount||'');
      let type='';
-     if(['receita','entrada','income'].includes(typeRaw))type='income';
-     if(['despesa','saida','out','expense'].includes(typeRaw))type='expense';
-     if(!desc||!date||!Number.isFinite(amount)||amount<=0||!type){errors.push(index+2);return;}
+     if(['receita','entrada','income','credito','crédito'].includes(typeRaw))type='income';
+     if(['despesa','saida','out','expense','debito','débito'].includes(typeRaw))type='expense';
+     if(!desc)diagnostics.description++;
+     if(!date)diagnostics.date++;
+     if(!Number.isFinite(amount)||amount<=0)diagnostics.amount++;
+     if(!type)diagnostics.type++;
+     if(!desc||!date||!Number.isFinite(amount)||amount<=0||!type)return;
      parsed.push({id:index+1,description:desc,amount,type,category,date});
    });
-   if(!parsed.length) throw new Error('Nenhuma linha válida. Verifique as colunas Data, Descrição, Categoria, Tipo e Valor.');
+   if(!parsed.length){
+     throw new Error(
+       `Nenhuma linha válida em ${rows.length} registros. Colunas detectadas: ${detectedHeaders.join(', ')||'nenhuma'}. Falhas — descrição: ${diagnostics.description}, data: ${diagnostics.date}, valor: ${diagnostics.amount}, tipo: ${diagnostics.type}. Codificação: ${csvEncoding}.`
+     );
+   }
    entries=parsed;
    updateCategoryOptions();
    const latest=parsed.map(e=>e.date.slice(0,7)).sort().at(-1);
@@ -269,7 +286,7 @@ async function loadPrivateCSV(){
    const availableMonths=new Set(parsed.map(e=>e.date.slice(0,7)));
    if(!availableMonths.has($('monthFilter').value)) $('monthFilter').value=availableMonths.has(currentMonth)?currentMonth:(latest||'');
    render();
-   setSourceStatus(`Dados protegidos carregados • ${parsed.length} lançamentos • Última atualização: ${new Date().toLocaleString('pt-BR')}${errors.length?` • ${errors.length} linha(s) inválida(s) ignorada(s)`:''}`);
+   setSourceStatus(`Dados protegidos carregados • ${parsed.length} lançamentos • Última atualização: ${new Date().toLocaleString('pt-BR')}${errors.length?` • codificação: ${csvEncoding}`:''}`);
  } catch(error) {
    entries=[];
    render();
