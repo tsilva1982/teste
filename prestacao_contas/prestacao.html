@@ -27,6 +27,7 @@ h1{font-size:clamp(22px,4vw,30px);margin:0;letter-spacing:-.6px}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#062033}
 .btn.danger{color:#fecdd3;border-color:#7f3446;background:#3a1c2a}
 .home-link{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.user-chip{font-size:12px;color:var(--muted);align-self:center;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hero{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:24px 0 16px}
 .hero h2{margin:0;font-size:20px}.hero p{margin:4px 0 0;color:var(--muted)}
 .period{background:var(--panel);border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:10px}
@@ -55,6 +56,8 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
 @media(max-width:800px){.content{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}header{align-items:flex-start;flex-direction:column}.header-actions{width:100%}.header-actions .btn{flex:1}}
 @media(max-width:480px){.wrap{padding:20px 13px 35px}.card,.section{padding:15px}.btn{padding:10px 11px}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase-config.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -64,9 +67,11 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
     <div><h1>Prestação de Contas</h1><p class="sub">Consulta e visualização de movimentações financeiras</p></div>
   </div>
   <div class="header-actions">
-    <a class="btn home-link" href="./index.html">⌂ Página inicial</a>
+    <a class="btn home-link" href="./index.html">⌂ Início</a>
+    <span class="user-chip" id="signedInEmail"></span>
     <button class="btn primary" id="refreshBtn">↻ Atualizar dados</button>
     <button class="btn" id="exportBtn">↓ Exportar CSV</button>
+    <button class="btn" id="signOutBtn">Sair</button>
   </div>
 </header>
 
@@ -116,8 +121,15 @@ const $ = id => document.getElementById(id);
 const money = value => new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(value);
 const today = new Date();
 $('monthFilter').value = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
+const cfg = window.PORTAL_CONFIG || {};
+const configReady = !!(window.supabase && cfg.supabaseUrl && cfg.supabaseAnonKey &&
+  !String(cfg.supabaseUrl).includes('SEU-PROJETO') &&
+  !String(cfg.supabaseAnonKey).includes('SUA_CHAVE'));
+const supabaseClient = configReady ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey) : null;
+const PRIVATE_BUCKET = 'prestacao-contas';
+const PRIVATE_CSV = 'lancamentos.csv';
 let entries = [];
-const CSV_URL = 'https://raw.githubusercontent.com/tsilva1982/teste/main/prestacao_contas/lancamentos.csv';
+let authorizedUser = null;
 
 function setSourceStatus(message, isError=false) {
  const el = $('sourceStatus');
@@ -204,17 +216,38 @@ function parseAmount(value){
  const n=Number(s);return Number.isFinite(n)?n:NaN;
 }
 
-async function loadRemoteCSV(){
+async function loadPrivateCSV(){
  const button=$('refreshBtn');
+ if(!configReady || !supabaseClient){
+   setSourceStatus('Configuração pendente: preencha supabase-config.js com a URL do projeto e a chave publishable do Supabase.',true);
+   return;
+ }
  button.disabled=true;
- button.textContent='Carregando...';
- setSourceStatus('Buscando lançamentos no GitHub...');
+ button.textContent='Validando acesso...';
+ setSourceStatus('Validando sua sessão Google...');
  try {
-   const response=await fetch(`${CSV_URL}?t=${Date.now()}`,{cache:'no-store'});
-   if(!response.ok) throw new Error(`Não foi possível acessar o CSV (HTTP ${response.status}). Confira se o arquivo lancamentos.csv está publicado na pasta prestacao_contas e se o repositório é público.`);
-   const csvText=await response.text();
+   const {data:sessionData,error:sessionError}=await supabaseClient.auth.getSession();
+   if(sessionError) throw sessionError;
+   if(!sessionData.session){
+     window.location.replace('./index.html');
+     return;
+   }
+   const {data:userData,error:userError}=await supabaseClient.auth.getUser();
+   if(userError || !userData.user) throw new Error('Sua sessão não pôde ser validada. Entre novamente.');
+   authorizedUser=userData.user;
+   $('signedInEmail').textContent=authorizedUser.email || 'Conta autenticada';
+
+   button.textContent='Carregando...';
+   setSourceStatus('Conta autenticada. Verificando autorização para consultar os dados...');
+   const {data:fileData,error:fileError}=await supabaseClient.storage
+     .from(PRIVATE_BUCKET)
+     .download(PRIVATE_CSV);
+   if(fileError){
+     throw new Error('Esta conta Google ainda não está autorizada ou o arquivo privado não foi configurado. Solicite a liberação do e-mail ao administrador.');
+   }
+   const csvText=await fileData.text();
    const rows=parseCSV(csvText);
-   if(!rows.length) throw new Error('O CSV está vazio ou não contém cabeçalho e linhas de dados.');
+   if(!rows.length) throw new Error('O CSV privado está vazio ou não contém cabeçalho e linhas de dados.');
    const parsed=[],errors=[];
    rows.forEach((row,index)=>{
      const desc=String(row.descricao||row.historico||row.lancamento||'').trim();
@@ -231,26 +264,32 @@ async function loadRemoteCSV(){
    if(!parsed.length) throw new Error('Nenhuma linha válida. Verifique as colunas Data, Descrição, Categoria, Tipo e Valor.');
    entries=parsed;
    updateCategoryOptions();
-   render();
    const latest=parsed.map(e=>e.date.slice(0,7)).sort().at(-1);
    const currentMonth=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
    const availableMonths=new Set(parsed.map(e=>e.date.slice(0,7)));
-   $('monthFilter').value=availableMonths.has(currentMonth)?currentMonth:(latest||'');
+   if(!availableMonths.has($('monthFilter').value)) $('monthFilter').value=availableMonths.has(currentMonth)?currentMonth:(latest||'');
    render();
-   setSourceStatus(`Dados carregados do GitHub • ${parsed.length} lançamentos • Última atualização: ${new Date().toLocaleString('pt-BR')}${errors.length?` • ${errors.length} linha(s) inválida(s) ignorada(s)`:''}`);
+   setSourceStatus(`Dados protegidos carregados • ${parsed.length} lançamentos • Última atualização: ${new Date().toLocaleString('pt-BR')}${errors.length?` • ${errors.length} linha(s) inválida(s) ignorada(s)`:''}`);
  } catch(error) {
-   setSourceStatus(`Falha ao carregar o CSV: ${error.message}`,true);
+   entries=[];
+   render();
+   setSourceStatus(error.message || 'Falha ao validar o acesso aos dados protegidos.',true);
  } finally {
    button.disabled=false;
    button.textContent='↻ Atualizar dados';
  }
 }
-$('refreshBtn').addEventListener('click',loadRemoteCSV);
+$('refreshBtn').addEventListener('click',loadPrivateCSV);
+$('signOutBtn').addEventListener('click',async()=>{
+ if(supabaseClient) await supabaseClient.auth.signOut();
+ window.location.replace('./index.html');
+});
+
 $('allPeriodsBtn').addEventListener('click',()=>{$('monthFilter').value='';render();});
 
 render();
-loadRemoteCSV();
-setInterval(loadRemoteCSV,5*60*1000);
+loadPrivateCSV();
+setInterval(loadPrivateCSV,5*60*1000);
 </script>
 </body>
 </html>
