@@ -26,6 +26,7 @@ h1{font-size:clamp(22px,4vw,30px);margin:0;letter-spacing:-.6px}
 .btn:hover{filter:brightness(1.18);transform:translateY(-1px)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#062033}
 .btn.danger{color:#fecdd3;border-color:#7f3446;background:#3a1c2a}
+.home-link{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .hero{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:24px 0 16px}
 .hero h2{margin:0;font-size:20px}.hero p{margin:4px 0 0;color:var(--muted)}
 .period{background:var(--panel);border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:10px}
@@ -63,6 +64,7 @@ footer{text-align:center;color:#718198;font-size:12px;margin-top:28px}
     <div><h1>Prestação de Contas</h1><p class="sub">Consulta e visualização de movimentações financeiras</p></div>
   </div>
   <div class="header-actions">
+    <a class="btn home-link" href="./index.html">⌂ Página inicial</a>
     <button class="btn primary" id="refreshBtn">↻ Atualizar dados</button>
     <button class="btn" id="exportBtn">↓ Exportar CSV</button>
   </div>
