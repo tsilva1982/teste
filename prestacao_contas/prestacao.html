@@ -286,7 +286,7 @@ async function loadPrivateCSV(){
    const availableMonths=new Set(parsed.map(e=>e.date.slice(0,7)));
    if(!availableMonths.has($('monthFilter').value)) $('monthFilter').value=availableMonths.has(currentMonth)?currentMonth:(latest||'');
    render();
-   setSourceStatus(`Dados protegidos carregados • ${parsed.length} lançamentos • Última atualização: ${new Date().toLocaleString('pt-BR')}${errors.length?` • codificação: ${csvEncoding}`:''}`);
+   setSourceStatus(`Dados protegidos carregados • ${parsed.length} lançamentos • Última atualização: ${new Date().toLocaleString('pt-BR')} • codificação: ${csvEncoding}`);
  } catch(error) {
    entries=[];
    render();
