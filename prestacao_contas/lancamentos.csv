@@ -272,7 +272,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/11/2026;Pagamento de Boleto - ALARES INTERNET SA;Residencial;Despesa;246,32
-01/09/2026;;Cartão de Crédito;Despesa;3196,6
+01/09/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;3196,6
 02/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 02/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 06/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
@@ -851,3 +851,9 @@ Data;Descrição;Categoria;Tipo;Valor
 13/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;811
 01/09/2026;Transferência enviada - 28/08 07:07 ACYRA F A HOLANDA;Acyra;Despesa;5000
 01/05/2026;Transferência enviada - 30/04 08:20 ACYRA F A HOLANDA;Acyra;Despesa;5000
+16/11/2026;Pix - Enviado 15/11 09:38 RAFAEL DA SILVA LEITE;Empregados e Cuidadores;Despesa;135
+16/11/2026;Pix - Enviado 15/11 09:39 CICERA ELIEUDA DE SENA;Empregados e Cuidadores;Despesa;460
+16/11/2026;Pix - Enviado 15/11 09:40 CICERA ELIEUDA DE SENA;Empregados e Cuidadores;Despesa;80
+16/11/2026;Pix - Enviado 15/11 09:41 FRANCISCA JANAINA JORGE D;Empregados e Cuidadores;Despesa;100
+16/11/2026;Pix - Enviado 15/11 09:42 Rozimeire Cesar Teixeira;Empregados e Cuidadores;Despesa;460
+16/11/2026;Pix - Enviado 15/11 09:42 Rozimeire Cesar Teixeira;Empregados e Cuidadores;Despesa;60
