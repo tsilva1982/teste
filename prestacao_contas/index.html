@@ -37,7 +37,7 @@ h1{font-size:clamp(40px,6vw,66px);line-height:1.04;letter-spacing:-2.5px;margin:
 h1 span{color:var(--blue)}
 .lead{font-size:17px;line-height:1.75;color:#aabbd0;max-width:570px;margin:0}
 .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:32px}
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;border-radius:13px;text-decoration:none;font-weight:800;background:linear-gradient(110deg,#38bdf8,#60a5fa);color:#061526;box-shadow:0 12px 30px rgba(14,165,233,.2);transition:transform .2s,filter .2s}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;border:0;border-radius:13px;text-decoration:none;font:inherit;font-weight:800;cursor:pointer;background:linear-gradient(110deg,#38bdf8,#60a5fa);color:#061526;box-shadow:0 12px 30px rgba(14,165,233,.2);transition:transform .2s,filter .2s}
 .cta:hover{transform:translateY(-2px);filter:brightness(1.07)}
 .cta svg{width:18px;height:18px}
 .secondary{color:#c5d3e4;text-decoration:none;font-weight:650;padding:12px 4px}
@@ -97,6 +97,8 @@ h1 span{color:var(--blue)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase-config.js"></script>
 </head>
 <body>
 <div class="container">
@@ -120,12 +122,13 @@ h1 span{color:var(--blue)}
         <h1>Clareza nos números.<br><span>Confiança em cada registro.</span></h1>
         <p class="lead">Um espaço organizado para acompanhar receitas, despesas e movimentações financeiras. Consulte os dados por período ou categoria em uma experiência simples e objetiva.</p>
         <div class="actions">
-          <a class="cta" href="./prestacao.html">
-            Acessar prestação de contas
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <button class="cta" id="googleLogin" type="button">
+            Entrar com Google
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M21.35 12.23c0-.68-.06-1.36-.18-2H12v3.79h5.24a4.49 4.49 0 0 1-1.94 2.95v2.45h3.14c1.84-1.7 2.91-4.2 2.91-7.19Z"/><path fill="#fff" d="M12 21.7c2.63 0 4.84-.87 6.45-2.36l-3.14-2.45c-.87.58-1.98.93-3.31.93-2.55 0-4.72-1.72-5.5-4.04H3.26v2.53A9.74 9.74 0 0 0 12 21.7Z"/><path fill="#fff" d="M6.5 13.78a5.85 5.85 0 0 1 0-3.56V7.69H3.26a9.73 9.73 0 0 0 0 8.62l3.24-2.53Z"/><path fill="#fff" d="M12 6.18c1.43 0 2.72.49 3.74 1.46l2.8-2.8A9.37 9.37 0 0 0 12 2.3a9.74 9.74 0 0 0-8.74 5.39L6.5 10.22C7.28 7.9 9.45 6.18 12 6.18Z"/></svg>
+          </button>
           <a class="secondary" href="#recursos">Conhecer o painel ↓</a>
         </div>
+        <p id="loginMessage" class="assurance" role="status">Acesso exclusivo para contas Google previamente autorizadas.</p>
         <div class="assurance">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
           Consulta organizada, com filtros e atualização dos dados pelo arquivo central
@@ -180,5 +183,47 @@ h1 span{color:var(--blue)}
     <a href="./prestacao.html">Ir diretamente ao painel →</a>
   </footer>
 </div>
+
+<script>
+(() => {
+  const cfg = window.PORTAL_CONFIG || {};
+  const ready = window.supabase && cfg.supabaseUrl && cfg.supabaseAnonKey &&
+    !String(cfg.supabaseUrl).includes('SEU-PROJETO') &&
+    !String(cfg.supabaseAnonKey).includes('SUA_CHAVE');
+  const message = document.getElementById('loginMessage');
+  const button = document.getElementById('googleLogin');
+  const target = new URL('./prestacao.html', window.location.href).href;
+  const client = ready ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey) : null;
+
+  if (!ready) {
+    message.textContent = 'Configuração pendente: preencha o arquivo supabase-config.js para ativar o acesso Google.';
+  } else {
+    client.auth.getSession().then(({data, error}) => {
+      if (!error && data.session) window.location.replace(target);
+    });
+  }
+
+  button.addEventListener('click', async () => {
+    if (!client) {
+      message.textContent = 'O login ainda não foi configurado. Consulte CONFIGURACAO_SEGURANCA.md.';
+      return;
+    }
+    button.disabled = true;
+    button.textContent = 'Conectando ao Google...';
+    const {error} = await client.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: target,
+        queryParams: {prompt: 'select_account'}
+      }
+    });
+    if (error) {
+      message.textContent = 'Não foi possível iniciar o login: ' + error.message;
+      button.disabled = false;
+      button.textContent = 'Entrar com Google';
+    }
+  });
+})();
+</script>
 </body>
 </html>
