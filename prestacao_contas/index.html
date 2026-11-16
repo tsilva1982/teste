@@ -180,7 +180,7 @@ h1 span{color:var(--blue)}
 
   <footer class="footer">
     <span>Prestação de Contas • Portal de consulta</span>
-    <a href="./prestacao.html">Ir diretamente ao painel →</a>
+    <span>Acesso aos dados somente após autenticação Google autorizada</span>
   </footer>
 </div>
 
@@ -193,7 +193,7 @@ h1 span{color:var(--blue)}
   const message = document.getElementById('loginMessage');
   const button = document.getElementById('googleLogin');
   const target = new URL('./prestacao.html', window.location.href).href;
-  const client = ready ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey) : null;
+  const client = ready ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {auth:{flowType:'pkce',autoRefreshToken:true,persistSession:true,detectSessionInUrl:true}}) : null;
 
   if (!ready) {
     message.textContent = 'Configuração pendente: preencha o arquivo supabase-config.js para ativar o acesso Google.';
