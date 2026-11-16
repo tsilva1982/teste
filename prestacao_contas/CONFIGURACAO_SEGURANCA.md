@@ -21,7 +21,7 @@ A publishable key identifica o projeto; ela não é uma senha. Nunca use uma cha
 
 ## 3. Autorizar os e-mails
 
-A inspeção identificou três registros habilitados na lista atual. Confirme se eles correspondem às contas autorizadas. Para cadastrar ou corrigir os endereços, use o SQL abaixo no SQL Editor, substituindo os exemplos pelos e-mails Google corretos:
+A inspeção identificou três registros habilitados na lista atual. Seus endereços não foram divulgados na resposta. Confirme se correspondem às contas que devem ter acesso. Para cadastrar ou corrigir os endereços, use o SQL abaixo no SQL Editor, substituindo os exemplos pelos e-mails Google corretos:
 
 ```sql
 insert into private.portal_access (email)
