@@ -1,69 +1,74 @@
 # Configuração de acesso seguro — Prestação de Contas
 
-O portal foi preparado para usar Google OAuth com Supabase Auth e proteger o arquivo financeiro em um bucket privado do Supabase Storage. O projeto Supabase ativo é `tuevfnvcesorjpkhtbzi`. O CSV não deve permanecer no repositório público do GitHub.
+O portal usa Google OAuth com Supabase Auth e mantém o arquivo financeiro em um bucket privado do Supabase Storage. O CSV não deve ficar no repositório público do GitHub.
 
-## 1. Projeto Supabase e configuração do cliente
-
-O projeto já foi identificado e a URL e a chave publicável já estão preenchidas em `supabase-config.js`. Não é necessário enviar essa chave novamente.
+## 1. Projeto e cliente
 
 - Project URL: `https://tuevfnvcesorjpkhtbzi.supabase.co`
-- Arquivo de configuração: `supabase-config.js`
+- Publishable key: configurada em `supabase-config.js`
+- A aplicação usa OAuth PKCE.
+- Nunca inclua uma chave `service_role` ou `sb_secret` no navegador ou no GitHub.
 
-A publishable key identifica o projeto; ela não é uma senha. Nunca use uma chave `service_role` ou `sb_secret` no navegador ou no GitHub. A proteção efetiva depende das políticas RLS no banco e no Storage. A aplicação usa OAuth PKCE e mantém a sessão no navegador.
+## 2. Segurança aplicada e verificada em 16/11/2026
 
-## 2. Instalar as políticas de segurança
+A correção foi aplicada ao projeto Supabase e revalidada:
 
-1. No Supabase, abra **SQL Editor**.
-2. Abra o arquivo `supabase_setup.sql` deste diretório.
-3. Cole o conteúdo no SQL Editor e execute.
-4. O script cria a lista privada de contas autorizadas, uma função de verificação e o bucket privado `prestacao-contas`.
-5. A política permite somente leitura do objeto `lancamentos.csv) por contas autenticadas e autorizadas.
+- RLS está habilitado em `private.portal_access`.
+- `anon`, `authenticated` e `public` não possuem leitura direta da lista de autorização.
+- A função `private.is_portal_user()` exige `auth.uid()`, rejeita sessões anônimas e compara o e-mail autenticado com a lista habilitada.
+- A função pode ser executada por `authenticated`, mas não por `anon`.
+- Sem uma sessão, a função retorna `false`.
+- O bucket `prestacao-contas` está privado.
+- A política de Storage permite somente SELECT do objeto `lancamentos.csv` por usuários autenticados aprovados.
 
-## 3. Autorizar os e-mails
+O Security Advisor mantém um aviso informativo porque a tabela de autorização não tem política própria de SELECT. Isso é intencional: a lista não deve ser lida diretamente pelo navegador. Também foi sinalizado que a proteção contra senhas vazadas está desativada; é recomendável ativá-la caso o projeto use autenticação por senha. Esse aviso não impediu o teste de Google OAuth.
 
-A inspeção identificou três registros habilitados na lista atual. Seus endereços não foram divulgados na resposta. Confirme se correspondem às contas que devem ter acesso. Para cadastrar ou corrigir os endereços, use o SQL abaixo no SQL Editor, substituindo os exemplos pelos e-mails Google corretos:
+## 3. Lista de pessoas autorizadas
+
+Há três registros habilitados. A validação de formato detectou que um deles contém dois sinais `@`, indicando provável duplicação do sufixo do domínio. Esse endereço não corresponde ao endereço normal do usuário de teste Google que aparece no Console. Por isso, a pessoa correspondente pode autenticar no Google, mas não passar pela autorização do portal.
+
+Confira os três e-mails no SQL Editor. Para corrigir o registro com erro, substitua o exemplo pelo e-mail exato da pessoa que já deve ter acesso:
+
+```sql
+update private.portal_access
+set email = 'email.correto@gmail.com'
+where email = 'email.com.sufixo.duplicado@gmail.com@gmail.com';
+```
+
+Não execute o exemplo sem confirmar o endereço correto. Para adicionar uma pessoa nova, use:
 
 ```sql
 insert into private.portal_access (email)
-values
-  ('seu.email@gmail.com'),
-  ('pessoa.autorizada@gmail.com')
+values ('nova.pessoa@gmail.com')
 on conflict (email) do update set enabled = true;
 ```
 
-Use letras minúsculas. Para revogar alguém:
+Para revogar o acesso:
 
 ```sql
 update private.portal_access
 set enabled = false
-where email = 'pessoa.autorizada@gmail.com';
+where email = 'pessoa@gmail.com';
 ```
 
-Não coloque essa lista no HTML ou no JavaScript público.
+## 4. Google OAuth
 
-## 4. Configurar o login Google
+O login Google foi efetivamente utilizado: o Supabase registra uma identidade Google e a sessão aberta no painel mostra uma conta autenticada. O Google Auth Platform está em modo **Testing**, com três usuários de teste cadastrados; somente esses testadores podem concluir o fluxo enquanto esse modo permanecer ativo.
 
-1. No Google Cloud Console, configure a tela de consentimento OAuth e crie uma credencial OAuth do tipo **Web application**.
-2. Em **Authorized JavaScript origins**, adicione a origem publicada do site, por exemplo:
-   `https://tsilva1982.github.io`
-3. Em **Authorized redirect URIs**, adicione o callback mostrado pelo Supabase em **Authentication → Providers → Google**. O formato é:
-   `https://SEU-PROJETO.supabase.co/auth/v1/callback`
-4. No Supabase, abra **Authentication → Providers → Google**, habilite Google e informe o Client ID e Client Secret do Google.
-5. Em **Authentication → URL Configuration**, configure a Site URL como:
-   `https://tsilva1982.github.io/teste/prestacao_contas/index.html`
-   e inclua como Redirect URL:
-   `https://tsilva1982.github.io/teste/prestacao_contas/**`
-6. Se a tela de consentimento Google estiver em modo **Testing**, inclua cada conta autorizada também na lista de usuários de teste do Google.
-7. Salve as configurações.
+- Callback do Supabase: `https://tuevfnvcesorjpkhtbzi.supabase.co/auth/v1/callback`
+- Origem autorizada do site: `https://tsilva1982.github.io`
+- Site URL sugerida no Supabase: `https://tsilva1982.github.io/teste/prestacao_contas/index.html`
+- Redirect URL: `https://tsilva1982.github.io/teste/prestacao_contas/**`
 
-O callback deste projeto será `https://tuevfnvcesorjpkhtbzi.supabase.co/auth/v1/callback`. O Client Secret do Google deve ficar somente no painel do Supabase. Não o inclua no GitHub, no JavaScript ou nesta conversa.
+O Client Secret deve permanecer apenas no painel do Supabase. Não o inclua no GitHub ou nesta documentação.
 
-## 5. Colocar o CSV em armazenamento privado
+## 5. Arquivo financeiro no Storage
 
-1. No Supabase, abra **Storage**.
-2. Localize o bucket privado `prestacao-contas` já existente.
-3. O objeto `lancamentos.csv` já está presente no bucket. Substitua-o quando quiser atualizar os lançamentos, mantendo o nome exato.
-4. Preserve o cabeçalho e o formato esperado:
+- Bucket: `prestacao-contas` (privado)
+- Objeto esperado: `lancamentos.csv`
+- Objeto encontrado no reteste: presente, com aproximadamente 80.690 bytes.
+
+O navegador autenticado conseguiu baixar o objeto, mas a aplicação rejeitou todas as linhas na validação. O formato esperado pelo painel é:
 
 ```csv
 Data;Descrição;Categoria;Tipo;Valor
@@ -71,21 +76,24 @@ Data;Descrição;Categoria;Tipo;Valor
 10/11/2026;Depósito mensal;Receita;Receita;1500,00
 ```
 
-Atualize esse arquivo no Storage quando precisar renovar os lançamentos. Não envie dados financeiros reais ao repositório público do GitHub.
+Os valores de `Tipo` aceitos são `Receita` ou `Despesa`; as datas podem estar em `DD/MM/AAAA` ou `AAAA-MM-DD`. Verifique se o arquivo atualmente no bucket tem esses campos e valores. Um CSV com cabeçalho `Data;Descrição;Categoria;Tipo;Valor` foi encontrado na Biblioteca e passou no parser local com 341 registros válidos, mas ainda não foi confirmado como o mesmo arquivo armazenado no bucket.
 
-## 6. Publicação e testes
+Substitua o objeto no Storage mantendo o nome exato `lancamentos.csv`. Não coloque dados financeiros reais no repositório público.
 
-1. Habilite o GitHub Pages para o repositório e publique a partir da branch `main`.
-2. Abra a página inicial e teste **Entrar com Google** com um e-mail autorizado.
-3. Teste também com uma conta Google que não esteja na lista: ela poderá autenticar no Google, mas não poderá baixar o CSV nem visualizar os lançamentos.
-4. Confirme que o CSV não abre por URL pública e que, após sair, o painel redireciona ao login.
+## 6. Resultado do reteste
 
-## Arquitetura e limites
+- **Site GitHub Pages:** abre o painel.
+- **Google OAuth:** validado com uma conta Google.
+- **Sessão e usuário:** validados no navegador.
+- **Download no Storage:** funcionou para a conta atualmente autenticada.
+- **Autorização no Storage:** a consulta do objeto passou; ainda falta testar uma conta não autorizada.
+- **Leitura dos lançamentos:** pendente, pois o arquivo atual não passou na validação do formato.
+- **Lista de autorização:** três registros ativos; um precisa ser corrigido após confirmar o endereço certo.
 
-- O GitHub hospeda apenas arquivos de interface, instruções e configuração pública do cliente.
-- O Supabase Auth autentica a conta Google.
-- A lista de autorização fica em um schema privado do banco.
-- O CSV fica em um bucket privado com política RLS.
-- O navegador usa apenas a publishable/anon key. Nunca use a service_role/secret key no front-end.
+## Arquitetura
 
-A inspeção confirmou três e-mails habilitados, mas não revelou seus endereços. Confirme se são as contas corretas. O Google OAuth ainda exige que o Client ID e Client Secret sejam configurados no painel Supabase/Google Cloud. A correção de RLS também está preparada no SQL, mas precisa ser revisada e executada antes de considerar o portal protegido.
+- GitHub Pages hospeda apenas a interface.
+- Supabase Auth autentica as contas Google.
+- `private.portal_access` mantém a lista de autorização.
+- Supabase Storage guarda o CSV em bucket privado.
+- O navegador utiliza somente a publishable key, nunca uma chave secreta.
