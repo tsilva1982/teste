@@ -68,7 +68,9 @@ O Client Secret deve permanecer apenas no painel do Supabase. Não o inclua no G
 - Objeto esperado: `lancamentos.csv`
 - Objeto encontrado no reteste: presente, com aproximadamente 80.690 bytes.
 
-O navegador autenticado conseguiu baixar o objeto, mas a aplicação rejeitou todas as linhas na validação. O formato esperado pelo painel é:
+O arquivo fornecido nesta conversa foi inspecionado: ele estava codificado em Windows-1252 (CP1252), não em UTF-8. O painel usa `fileData.text()`, que decodifica como UTF-8; por isso a coluna `Descrição` ficava ilegível e nenhuma linha era aceita. O arquivo foi convertido para UTF-8 com BOM, preservando o cabeçalho e os dados: 852 lançamentos (787 despesas e 65 receitas), todos aprovados na validação de data, tipo, descrição e valor. A versão convertida está disponível no arquivo `lancamentos.csv` desta conversa para substituir o objeto no Storage.
+
+O navegador autenticado conseguiu baixar o objeto antigo, mas a aplicação rejeitou todas as linhas na validação. O objeto atual no bucket tem 80.690 bytes, igual ao arquivo original CP1252 recebido; a versão UTF-8 convertida tem 81.087 bytes. É necessário substituir o objeto no Storage pela versão UTF-8 para que o painel leia os registros. O formato esperado pelo painel é:
 
 ```csv
 Data;Descrição;Categoria;Tipo;Valor
@@ -87,7 +89,7 @@ Substitua o objeto no Storage mantendo o nome exato `lancamentos.csv`. Não colo
 - **Sessão e usuário:** validados no navegador.
 - **Download no Storage:** funcionou para a conta atualmente autenticada.
 - **Autorização no Storage:** a consulta do objeto passou; ainda falta testar uma conta não autorizada.
-- **Leitura dos lançamentos:** pendente, pois o arquivo atual não passou na validação do formato.
+- **Leitura dos lançamentos:** a origem do erro foi identificada (arquivo CP1252 incompatível com a decodificação UTF-8 do navegador). Versão convertida e validada; ainda falta substituir o objeto no Storage e repetir o teste.
 - **Lista de autorização:** três registros ativos; um precisa ser corrigido após confirmar o endereço certo.
 
 ## Arquitetura
