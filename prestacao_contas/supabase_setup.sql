@@ -44,6 +44,9 @@ set public = false,
     file_size_limit = excluded.file_size_limit,
     allowed_mime_types = excluded.allowed_mime_types;
 
+-- O papel autenticado pode consultar metadados/objetos; a política RLS abaixo limita o arquivo.
+grant select on storage.objects to authenticated;
+
 drop policy if exists "Approved users can read the financial statement CSV" on storage.objects;
 
 create policy "Approved users can read the financial statement CSV"
