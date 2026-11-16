@@ -10,7 +10,7 @@ O portal foi preparado para usar Google OAuth com Supabase Auth e proteger o arq
 4. Abra `supabase-config.js` e substitua os dois valores de exemplo.
 5. Nunca use uma chave `service_role` ou `secret` no navegador ou no GitHub.
 
-A publishable/anon key é identificadora do projeto, não é uma senha. A proteção efetiva é feita pelas políticas RLS instaladas no banco e no Storage.
+A publishable/anon key é identificadora do projeto, não é uma senha. A proteção efetiva é feita pelas políticas RLS instaladas no banco e no Storage. A aplicação usa o fluxo OAuth PKCE e mantém a sessão no navegador.
 
 ## 2. Instalar as políticas de segurança
 
@@ -50,9 +50,12 @@ Não coloque essa lista no HTML ou no JavaScript público.
 3. Em **Authorized redirect URIs**, adicione o callback mostrado pelo Supabase em **Authentication → Providers → Google**. O formato é:
    `https://SEU-PROJETO.supabase.co/auth/v1/callback`
 4. No Supabase, abra **Authentication → Providers → Google**, habilite Google e informe o Client ID e Client Secret do Google.
-5. Em **Authentication → URL Configuration**, configure a Site URL e inclua como Redirect URL:
+5. Em **Authentication → URL Configuration**, configure a Site URL como:
+   `https://tsilva1982.github.io/teste/prestacao_contas/index.html`
+   e inclua como Redirect URL:
    `https://tsilva1982.github.io/teste/prestacao_contas/**`
-6. Salve as configurações.
+6. Se a tela de consentimento Google estiver em modo **Testing**, inclua cada conta autorizada também na lista de usuários de teste do Google.
+7. Salve as configurações.
 
 O Client Secret do Google deve ficar somente no painel do Supabase. Não o inclua no GitHub nem no JavaScript.
 
