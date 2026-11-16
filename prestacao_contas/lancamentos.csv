@@ -86,7 +86,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;70
 02/03/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;28,45
 01/04/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;48,78
-04/05/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;22,79
+01/05/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
 01/06/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;28,66
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 01/07/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;40,37
@@ -105,7 +105,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/04/2026;Cobrança de Juros - Juros Saldo Devedor Conta;Tarifas;Despesa;225,89
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;750
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;750
-01/05/2026;Cobrança de Juros - Juros Saldo Devedor Conta;Tarifas;Despesa;342,05
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2164
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;70
 01/06/2026;Cobrança de Juros - Juros Saldo Devedor Conta;Tarifas;Despesa;187,41
 02/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
@@ -250,8 +250,8 @@ Data;Descrição;Categoria;Tipo;Valor
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;260
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Sucatinga;Despesa;398,06
-01/05/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Sucatinga;Despesa;324,21
+01/05/2026;Pix Agendado - 23/04 THIAGO LEITE DE OLIVEIRA 016/999;Doações;Despesa;2000
+01/05/2026;Pix Agendado - 23/04 THIAGO LEITE DE OLIVEIRA 004/012;Empregados e Cuidadores;Despesa;1900
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;260
 01/06/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Residencial;Despesa;309,65
@@ -305,75 +305,75 @@ Data;Descrição;Categoria;Tipo;Valor
 20/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
 20/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 20/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/05/2026;Pix - Enviado - 27/04 09:09 JOSEANNE DE OLIVEIRA NERY;Doações;Despesa;1900
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1882
+01/05/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1858,26
+01/05/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1685,89
 01/05/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1477,11
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 18/02/2026;Pix - Enviado - 15/02 08:36 THIAGO LEITE DE OLIVEIRA D;Empregados e Cuidadores;Despesa;70
 18/02/2026;Pix - Enviado - 18/02 10:07 THIAGO LEITE DE OLIVEIRA D;Empregados e Cuidadores;Despesa;60
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/05/2026;Pix - Enviado - 27/04 09:10 ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
 01/06/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
 01/07/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
-01/05/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1685,89
-01/05/2026;Pagamento de Boleto - Cartão Unimed Parcelado;Cartão de Crédito;Despesa;1858,26
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
+12/05/2026;Pix - Enviado - 12/05 08:08 RAFAEL DE SOUSA BEZERRA P;Saúde;Despesa;900
 03/08/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;750
 01/09/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+13/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;750
 02/10/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;390
+04/05/2026;Pix - Enviado - 04/05 09:10 LEDA MARIA DE OLIVEIRA SA;Farmácia;Despesa;500
 03/11/2026;Pagamento de Boleto - EDIFICIO TIAGO;Residencial;Despesa;1527,11
 01/06/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Sucatinga;Despesa;474,31
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
+04/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
 01/06/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Sucatinga;Despesa;318,78
 20/02/2026;Pix - Enviado - 20/02 18:44 THIAGO LEITE DE OLIVEIRA D;Empregados e Cuidadores;Despesa;150
 01/07/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Residencial;Despesa;506,81
 01/07/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Sucatinga;Despesa;581,23
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1882
+11/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;400
+01/05/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Sucatinga;Despesa;398,06
 01/07/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Residencial;Despesa;358,03
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;320
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;750
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;390
+07/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;390
+06/05/2026;Pagamento de Impostos - PMF PREFEITURA MUN;Impostos;Despesa;351,2
+01/05/2026;Cobrança de Juros - Juros Saldo Devedor Conta;Tarifas;Despesa;342,05
 01/07/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Sucatinga;Despesa;188,78
 01/03/2026;Pix Agendado - 23/02 THIAGO LEITE DE OLIVEIRA 002/012;Empregados e Cuidadores;Despesa;1900
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
+01/05/2026;Pagamento conta luz - COELCE CIA ENERGETICA CE;Sucatinga;Despesa;324,21
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;320
 01/03/2026;Pix Agendado - 23/02 THIAGO LEITE DE OLIVEIRA 014/999;Doações;Despesa;2000
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+11/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;260
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 01/08/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Residencial;Despesa;353,37
 01/08/2026;Pagamento de Boleto - ENEL DISTRIBUICAO CEARA;Sucatinga;Despesa;716,73
-04/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
-04/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;50
-04/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+04/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 09/03/2026;Pix - Enviado - 09/03 18:03 THIAGO LEITE DE OLIVEIRA D;Empregados e Cuidadores;Despesa;100
 01/02/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
 01/03/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
-05/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+11/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
 01/04/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
-06/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
+01/05/2026;TED Transf.Eletr.Disponiv - 104 0926 11966858353 VANDA CUNHA DE OL;Doações;Despesa;200
+06/05/2026;Pagamento de Impostos - PMF PREFEITURA MUN;Impostos;Despesa;196,22
 01/07/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
 05/08/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2498,19
-07/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;390
-07/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-08/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+07/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+01/05/2026;Pagamento de Boleto - R. C. DE FREITAS ADMINISTRADOR;Residencial;Despesa;166,42
+04/05/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;150,53
 01/09/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2676,19
 05/10/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;3217,3
 05/10/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;178
-11/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-11/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;400
-12/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+06/05/2026;Pix - Enviado - 06/05 17:36 MARTA MARIA LEITE DE OLIV;Empregados e Cuidadores;Despesa;150
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 05/11/2026;Pagamento de Boleto - FORTLOC IMOBILIARIA LTDA;Residencial;Despesa;2775,3
-13/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-13/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;750
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 01/10/2026;Pagamento de Boleto - MUNICIPIO DE FORTALEZA;Impostos;Despesa;365,92
-01/05/2026;Pagamento de Boleto - R. C. DE FREITAS ADMINISTRADOR;Residencial;Despesa;166,42
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;400
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;520
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;760
@@ -388,7 +388,7 @@ Data;Descrição;Categoria;Tipo;Valor
 02/02/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;164,53
 02/03/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;150,98
 01/04/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;144,96
-04/05/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;150,53
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;120
 01/06/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;164,99
 01/07/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;149,65
 03/08/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;153,71
@@ -402,12 +402,12 @@ Data;Descrição;Categoria;Tipo;Valor
 03/11/2026;Pagamento de Gás - ULTRAGAZ - NORTE/NORDESTE;Residencial;Despesa;185,32
 01/04/2026;Pagamento de Impostos - DAE ESTADO CEARA;Impostos;Despesa;9,9
 01/04/2026;Pagamento de Impostos - DAE ESTADO CEARA;Impostos;Despesa;99
-06/05/2026;Pagamento de Impostos - PMF PREFEITURA MUN;Impostos;Despesa;196,22
+01/05/2026;Tarifa Pacote de Serviços - Cobrança referente 27/04/2026;Tarifas;Despesa;119
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;320
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;810
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1882
-06/05/2026;Pagamento de Impostos - PMF PREFEITURA MUN;Impostos;Despesa;351,2
+01/05/2026;Pagto conta telefone - VIVO CE;Residencial;Despesa;116,82
 02/03/2026;Pagamento de Impostos - RFB-DARF CODIGO DE BARRAS;Impostos;Despesa;608,21
 03/03/2026;Pagamento de Impostos - RFB-DARF CODIGO DE BARRAS;Impostos;Despesa;123,45
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
@@ -437,7 +437,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/03/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
 01/04/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
 15/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;350
-01/05/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 15/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;500
 15/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;811
 01/06/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
@@ -456,7 +456,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;150
 01/04/2026;Pagto conta telefone - CLARO S.A.;Residencial;Despesa;195,42
 01/04/2026;Pagto conta telefone - VIVO CE;Residencial;Despesa;155
-01/05/2026;Pagto conta telefone - VIVO CE;Residencial;Despesa;116,82
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 03/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 03/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230,01
 14/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;520
@@ -477,14 +477,14 @@ Data;Descrição;Categoria;Tipo;Valor
 01/04/2026;Pix - Agendamento - 25/03 05:38 JOSEANNE DE OLIVEIRA NERY;Doações;Despesa;1900
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;80
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;320
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 01/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1864
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230,01
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;810
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2164
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2164
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1692
 01/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2164
@@ -494,7 +494,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/07/2026;Pix - Agendamento - 29/06 05:31 JOSEANNE DE OLIVEIRA NERY;Doações;Despesa;1900
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2164
 01/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 02/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
@@ -503,7 +503,7 @@ Data;Descrição;Categoria;Tipo;Valor
 06/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 06/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 06/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;390
-04/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 02/06/2026;Pix - Enviado - 02/06 10:30 RAFAEL DE SOUSA BEZERRA P;Saúde;Despesa;900
 07/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 08/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
@@ -535,13 +535,13 @@ Data;Descrição;Categoria;Tipo;Valor
 04/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;160
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;650
-04/05/2026;Pix - Enviado - 04/05 09:10 LEDA MARIA DE OLIVEIRA SA;Farmácia;Despesa;500
+04/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 05/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
 06/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
 05/08/2026;Pix - Enviado - 05/08 18:51 ERIVALDO DE SOUSA CHAVES;Saúde;Despesa;210
 05/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;40
-06/05/2026;Pix - Enviado - 06/05 17:36 MARTA MARIA LEITE DE OLIV;Empregados e Cuidadores;Despesa;150
+05/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 08/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 06/08/2026;Pix - Enviado - 06/08 14:03 Alex de Andrade Aguiar;Residencial;Despesa;30
 06/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
@@ -553,7 +553,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;430
 06/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-07/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+06/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 08/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 07/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
 09/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;195
@@ -578,8 +578,8 @@ Data;Descrição;Categoria;Tipo;Valor
 10/09/2026;Pix - Enviado - 10/09 18:14 MARTA MARIA LEITE DE OLIV;Empregados e Cuidadores;Despesa;100
 13/10/2026;Pix - Enviado - 10/10 12:45 MARTA MARIA LEITE DE OLIV;Empregados e Cuidadores;Despesa;200
 10/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;40
-11/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
-11/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;260
+07/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+08/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 04/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
 05/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 05/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;390
@@ -591,18 +591,18 @@ Data;Descrição;Categoria;Tipo;Valor
 11/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1520
 11/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;190
 10/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;170
-01/05/2026;Pix Agendado - 23/04 THIAGO LEITE DE OLIVEIRA 004/012;Empregados e Cuidadores;Despesa;1900
+11/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 11/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
 11/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
 11/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;400
-12/05/2026;Pix - Enviado - 12/05 08:08 RAFAEL DE SOUSA BEZERRA P;Saúde;Despesa;900
+12/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 14/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 13/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;500
 14/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
 14/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 13/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
 14/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;350
-01/05/2026;Pix Agendado - 23/04 THIAGO LEITE DE OLIVEIRA 016/999;Doações;Despesa;2000
+13/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 17/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
 17/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1330
 16/03/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1330
@@ -618,7 +618,7 @@ Data;Descrição;Categoria;Tipo;Valor
 14/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 14/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;40
 14/10/2026;Pix - Enviado - 14/10 16:18 IMIFARMA;Farmácia;Despesa;354,5
-11/05/2026;Pix - Enviado - 11/05 21:54 THIAGO LEITE DE OLIVEIRA;Empregados e Cuidadores;Despesa;80
+01/05/2026;Pagamento de Telefone - TIM SA;Residencial;Despesa;95,99
 15/04/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;900
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 15/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1000
@@ -695,7 +695,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/10/2026;Pix - Enviado - 23/09 17:32 ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
 01/10/2026;Pix - Enviado - 23/09 17:34 Ana Maria Leite de Olivei;Doações;Despesa;1900
 01/11/2026;Pix - Enviado - 23/10 10:59 MUNICIPIO DE FORTALEZA;Impostos;Despesa;368,29
-01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
 01/06/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;460
 01/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
 01/09/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;370
@@ -739,8 +739,8 @@ Data;Descrição;Categoria;Tipo;Valor
 01/11/2026;Pix - Enviado - 26/10 12:48 AMAZON COM BR;Residencial;Despesa;270,1
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;2000
 05/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
-01/05/2026;Pix - Enviado - 27/04 09:09 JOSEANNE DE OLIVEIRA NERY;Doações;Despesa;1900
-01/05/2026;Pix - Enviado - 27/04 09:10 ERICK DA SILVA OLIVEIRA;Sucatinga;Despesa;1200
+01/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
+11/05/2026;Pix - Enviado - 11/05 21:54 THIAGO LEITE DE OLIVEIRA;Empregados e Cuidadores;Despesa;80
 01/08/2026;Pix - Enviado - 27/07 15:43 JOSEANNE DE OLIVEIRA NERY;Doações;Despesa;1900
 01/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;234
 05/10/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;60
@@ -812,7 +812,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/02/2026;Tarifa Pacote de Serviços - Cobrança referente 26/01/2026;Tarifas;Despesa;119
 01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1893
 01/11/2026;Tarifa Pacote de Serviços - Cobrança referente 26/10/2026;Tarifas;Despesa;120,4
-01/05/2026;Tarifa Pacote de Serviços - Cobrança referente 27/04/2026;Tarifas;Despesa;119
+04/05/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;50
 01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
 01/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 01/08/2026;Tarifa Pacote de Serviços - Cobrança referente 27/07/2026;Tarifas;Despesa;120,4
@@ -820,7 +820,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/04/2026;TED Transf.Eletr.Disponiv - 104 0926 11966858353 VANDA CUNHA DE OL;Doações;Despesa;200
 03/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;25
 03/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-01/05/2026;TED Transf.Eletr.Disponiv - 104 0926 11966858353 VANDA CUNHA DE OL;Doações;Despesa;200
+04/05/2026;Cobrança de I.O.F. - IOF Saldo Devedor Conta;Tarifas;Despesa;22,79
 01/06/2026;TED Transf.Eletr.Disponiv - 104 0926 11966858353 VANDA CUNHA DE OL;Doações;Despesa;200
 01/07/2026;TED Transf.Eletr.Disponiv - 104 0926 11966858353 VANDA CUNHA DE OL;Doações;Despesa;200
 01/08/2026;TED Transf.Eletr.Disponiv - 104 0926 11966858353 VANDA CUNHA DE OL;Doações;Despesa;200
@@ -835,19 +835,19 @@ Data;Descrição;Categoria;Tipo;Valor
 01/11/2026;Transferência Agendada - 20/10 ACYRA F A HOLANDA;Acyra;Despesa;2000
 09/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;400
 01/04/2026;Transferência enviada - 23/03 12:39 ACYRA F A HOLANDA;Acyra;Despesa;10000
-46082;Transferência enviada - 25/02 07:28 ACYRA F A HOLANDA;Acyra;Despesa;10000
-46335;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-46335;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-46296;Transferência enviada - 25/09 09:51 ACYRA F A HOLANDA;Acyra;Despesa;3000
-46174;Transferência enviada - 26/05 15:33 ACYRA F A HOLANDA;Acyra;Despesa;5000
-46336;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-46204;Transferência enviada - 26/06 17:54 ACYRA F A HOLANDA;Acyra;Despesa;5000
-46337;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
-46054;Transferência enviada - 27/01 18:39 ACYRA F A HOLANDA;Acyra;Despesa;12000
-46235;Transferência enviada - 27/07 15:42 ACYRA F A HOLANDA;Acyra;Despesa;5000
-46337;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1580
-46339;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
-46339;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
-46339;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;811
-46266;Transferência enviada - 28/08 07:07 ACYRA F A HOLANDA;Acyra;Despesa;5000
-46143;Transferência enviada - 30/04 08:20 ACYRA F A HOLANDA;Acyra;Despesa;5000
+01/03/2026;Transferência enviada - 25/02 07:28 ACYRA F A HOLANDA;Acyra;Despesa;10000
+09/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+09/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/10/2026;Transferência enviada - 25/09 09:51 ACYRA F A HOLANDA;Acyra;Despesa;3000
+01/06/2026;Transferência enviada - 26/05 15:33 ACYRA F A HOLANDA;Acyra;Despesa;5000
+10/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/07/2026;Transferência enviada - 26/06 17:54 ACYRA F A HOLANDA;Acyra;Despesa;5000
+11/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
+01/02/2026;Transferência enviada - 27/01 18:39 ACYRA F A HOLANDA;Acyra;Despesa;12000
+01/08/2026;Transferência enviada - 27/07 15:42 ACYRA F A HOLANDA;Acyra;Despesa;5000
+11/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1580
+13/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;200
+13/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
+13/11/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;811
+01/09/2026;Transferência enviada - 28/08 07:07 ACYRA F A HOLANDA;Acyra;Despesa;5000
+01/05/2026;Transferência enviada - 30/04 08:20 ACYRA F A HOLANDA;Acyra;Despesa;5000
