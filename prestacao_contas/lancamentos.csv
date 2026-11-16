@@ -59,7 +59,7 @@ Data;Descrição;Categoria;Tipo;Valor
 09/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 09/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;230
 09/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;70
-09/02/2026;Compra com Cartão - 07/02 09:21 NORMATEL HOME CENTER;Manutenção Residencial;Despesa;29,8
+09/02/2026;Compra com Cartão - 07/02 09:21 NORMATEL HOME CENTER;Residencial;Despesa;29,8
 09/02/2026;Pix - Enviado - 09/02 10:58 THIAGO LEITE DE OLIVEIRA D;Empregados e Cuidadores;Despesa;100
 09/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;195
 10/02/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;70
@@ -489,8 +489,6 @@ Data;Descrição;Categoria;Tipo;Valor
 14/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 14/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;830
 14/07/2026;Pix - Enviado - 14/07 20:00 PAGALEVE FUNDO DE INVESTI;Impostos;Despesa;42,49
-15/07/2026;Pix - Rejeitado - 15/07 21:52 Pix não efetuado. Erro no;Estorno;Receita;100
-15/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
 15/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;811
 15/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;1520
 16/07/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;100
@@ -504,7 +502,7 @@ Data;Descrição;Categoria;Tipo;Valor
 01/08/2026;Recebimentos Diversos - 12.888.241/0001-06 LIVELO S.A.;Diversos;Receita;92,53
 01/08/2026;BB Seguro Auto - SEGURO AUTO BB/MAPFRE;Residencial;Despesa;168,22
 01/08/2026;Cobrança de Juros - Juros Saldo Devedor Conta;Tarifas;Despesa;244,63
-01/08/2026;Compra com Cartão - 22/07 18:59 AcopelAmerico;Combustível;Despesa;243,35
+01/08/2026;Compra com Cartão - 22/07 18:59 AcopelAmerico;Veículo;Despesa;243,35
 01/08/2026;Compra com Cartão - 22/07 19:19 SUPERMERCADO COMETA;Supermercado;Despesa;96,61
 01/08/2026;Compra com Cartão - 22/07 19:30 DROGASIL 2321;Farmácia;Despesa;107,69
 01/08/2026;Compra com Cartão - 22/07 19:34 SUPERMERCADO COMETA;Supermercado;Despesa;19,05
@@ -574,7 +572,7 @@ Data;Descrição;Categoria;Tipo;Valor
 14/08/2026;Pix - Recebido - 14/08 21:52 00090829930310 THIAGO LEIT;Empréstimo;Receita;800
 14/08/2026;Compra com Cartão - 14/08 15:37 LANY;Restaurante;Despesa;45
 14/08/2026;Compra com Cartão - 14/08 15:38 LANY;Restaurante;Despesa;13,8
-14/08/2026;Compra com Cartão - 14/08 18:48 AcopelAmerico;Combustível;Despesa;200
+14/08/2026;Compra com Cartão - 14/08 18:48 AcopelAmerico;Veículo;Despesa;200
 14/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;90
 14/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;350
 14/08/2026;Pagamento Empregados e Cuidadores;Empregados e Cuidadores;Despesa;180
